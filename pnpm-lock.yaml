@@ -27,8 +27,8 @@ importers:
         specifier: ^1.0.9
         version: 1.2.0(next@15.6.0-canary.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)
       geist:
-        specifier: 1.2.2
-        version: 1.2.2(next@15.6.0-canary.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
+        specifier: ^1.5.1
+        version: 1.5.1(next@15.6.0-canary.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       next:
         specifier: canary
         version: 15.6.0-canary.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -513,10 +513,10 @@ packages:
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
-  geist@1.2.2:
-    resolution: {integrity: sha512-uRDrxhvdnPwWJmh+K5+/5LXSKwvJzaYCl9tDXgiBi4hj7hB4K7+n/WLcvJMFs5btvyn0r9OSwCd1s6CmqAsxEw==}
+  geist@1.5.1:
+    resolution: {integrity: sha512-mAHZxIsL2o3ZITFaBVFBnwyDOw+zNLYum6A6nIjpzCGIO8QtC3V76XF2RnZTyLx1wlDTmMDy8jg3Ib52MIjGvQ==}
     peerDependencies:
-      next: '>=13.2.0 <15'
+      next: '>=13.2.0'
 
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
@@ -1339,7 +1339,7 @@ snapshots:
 
   function-bind@1.1.2: {}
 
-  geist@1.2.2(next@15.6.0-canary.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)):
+  geist@1.5.1(next@15.6.0-canary.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)):
     dependencies:
       next: 15.6.0-canary.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 

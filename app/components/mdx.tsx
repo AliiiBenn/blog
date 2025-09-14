@@ -67,18 +67,24 @@ function slugify(str) {
 function createHeading(level) {
   const Heading = ({ children }) => {
     let slug = slugify(children)
-    return React.createElement(
-      `h${level}`,
-      { id: slug },
-      [
-        React.createElement('a', {
-          href: `#${slug}`,
-          key: `link-${slug}`,
-          className: 'anchor',
-        }),
-      ],
-      children
-    )
+
+    const headerProps = {
+      id: slug,
+      children: [
+        <a href={`#${slug}`} key={`link-${slug}`} className="anchor" />,
+        children
+      ]
+    }
+
+    switch (level) {
+      case 1: return <h1 {...headerProps} />
+      case 2: return <h2 {...headerProps} />
+      case 3: return <h3 {...headerProps} />
+      case 4: return <h4 {...headerProps} />
+      case 5: return <h5 {...headerProps} />
+      case 6: return <h6 {...headerProps} />
+      default: return <h2 {...headerProps} />
+    }
   }
 
   Heading.displayName = `Heading${level}`
