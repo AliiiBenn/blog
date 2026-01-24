@@ -2,7 +2,7 @@
 
 ## Overview
 
-Configure PayloadCMS with PostgreSQL, Vercel Blob Storage, and authentication.
+Configure PayloadCMS with PostgreSQL, AWS S3 storage, and authentication.
 
 ## Payload Initialization File
 
@@ -11,7 +11,7 @@ Create `payload/init.ts`:
 ```typescript
 import { buildConfig } from 'payload';
 import { postgresAdapter } from '@payloadcms/db-postgres';
-import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob';
+import { s3Storage } from '@payloadcms/storage-s3';
 import { slateEditor } from '@payloadcms/richtext-slate';
 
 export default buildConfig({
@@ -28,7 +28,7 @@ export default buildConfig({
     // Globals will be imported here
   ],
   admin: {
-    user: 'Users',
+    user: 'Admins',
     admin: {
       meta: {
         titleSuffix: '- Blog Admin',
@@ -39,11 +39,17 @@ export default buildConfig({
     outputFile: './payload-types.ts',
   },
   plugins: [
-    vercelBlobStorage({
+    s3Storage({
       collections: {
         media: true,
       },
-      token: process.env.BLOB_READ_WRITE_TOKEN,
+      bucket: process.env.S3_BUCKET_NAME,
+      region: process.env.S3_REGION,
+      credentials: {
+        accessKeyId: process.env.S3_ACCESS_KEY_ID,
+        secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+      },
+      endpoint: process.env.S3_ENDPOINT, // Optional: for S3-compatible services
     }),
   ],
 });
@@ -104,8 +110,12 @@ POSTGRES_URL=""
 POSTGRES_PRISMA_URL=""
 POSTGRES_URL_NON_POOLING=""
 
-# Vercel Blob Storage
-BLOB_READ_WRITE_TOKEN=""
+# AWS S3
+S3_BUCKET_NAME="your-bucket-name"
+S3_REGION="us-east-1"
+S3_ACCESS_KEY_ID="your-access-key"
+S3_SECRET_ACCESS_KEY="your-secret-key"
+S3_ENDPOINT=""  # Optional: for S3-compatible services like DigitalOcean Spaces
 
 # Admin credentials (for initial seed)
 PAYLOAD_ADMIN_EMAIL="admin@example.com"
@@ -118,7 +128,11 @@ Set these in Vercel dashboard:
 - `DATABASE_URL` - Vercel Postgres connection string
 - `PAYLOAD_SECRET` - Random string for encryption
 - `NEXT_PUBLIC_PAYLOAD_URL` - Your production URL
-- `BLOB_READ_WRITE_TOKEN` - From Vercel Blob Storage
+- `S3_BUCKET_NAME` - Your S3 bucket name
+- `S3_REGION` - AWS region (e.g., us-east-1)
+- `S3_ACCESS_KEY_ID` - AWS access key ID
+- `S3_SECRET_ACCESS_KEY` - AWS secret access key
+- `S3_ENDPOINT` - Optional: for S3-compatible services
 
 ## Admin Access
 
@@ -126,8 +140,9 @@ The admin panel will be available at `/admin` after configuration is complete.
 
 ## Next Steps
 
-- [ ] Create Users collection
+- [ ] Create Admins collection
 - [ ] Create Posts collection
 - [ ] Create Categories collection
 - [ ] Create Tags collection
 - [ ] Create Media collection
+- [ ] Setup S3 bucket and credentials

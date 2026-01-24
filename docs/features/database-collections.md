@@ -2,17 +2,17 @@
 
 ## Overview
 
-Define PayloadCMS collections for Users, Posts, Categories, Tags, and Media.
+Define PayloadCMS collections for Admins, Posts, Categories, Tags, and Media.
 
-## Users Collection
+## Admins Collection
 
-Create `payload/collections/Users.ts`:
+Create `payload/collections/Admins.ts`:
 
 ```typescript
 import { CollectionConfig } from 'payload';
 
-export const Users: CollectionConfig = {
-  slug: 'users',
+export const Admins: CollectionConfig = {
+  slug: 'admins',
   auth: true,
   admin: {
     useAsTitle: 'email',
@@ -23,16 +23,13 @@ export const Users: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    {
-      name: 'role',
-      type: 'select',
-      options: [
-        { label: 'Admin', value: 'admin' },
-      ],
-      defaultValue: 'admin',
-      required: true,
-    },
   ],
+  access: {
+    read: () => true,
+    create: () => true,
+    update: () => true,
+    delete: () => true,
+  },
 };
 ```
 
@@ -253,12 +250,12 @@ Update `payload/init.ts`:
 import { Posts } from './collections/Posts';
 import { Categories } from './collections/Categories';
 import { Tags } from './collections/Tags';
-import { Users } from './collections/Users';
+import { Admins } from './collections/Admins';
 import { Media } from './collections/Media';
 
 // In buildConfig:
 collections: [
-  Users,
+  Admins,
   Posts,
   Categories,
   Tags,
@@ -270,15 +267,52 @@ collections: [
 
 When you run the app, Payload will automatically create these tables in PostgreSQL:
 
-- `users` - Admin users
+- `admins` - Admin users
 - `posts` - Blog posts
 - `categories` - Post categories
 - `tags` - Post tags
-- `media` - Uploaded files
+- `media` - Uploaded files metadata
 - `posts_tags` - Junction table for posts-tags relationship
+
+## S3 Storage Setup
+
+### Create an S3 Bucket
+
+1. Go to AWS Console → S3
+2. Create a new bucket with a unique name
+3. Configure CORS policy for Next.js:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowUploads",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": ["s3:PutObject", "s3:GetObject"],
+      "Resource": "arn:aws:s3:::your-bucket-name/*"
+    }
+  ]
+}
+```
+
+4. Create IAM user with programmatic access (S3 read/write permissions)
+5. Store credentials in environment variables
+
+### Alternative: S3-Compatible Services
+
+You can use S3-compatible services instead of AWS S3:
+- **DigitalOcean Spaces** - Cheaper, simpler
+- **Cloudflare R2** - Zero egress fees
+- **MinIO** - Self-hosted option
+- **Wasabi** - Flat pricing
+
+Just set `S3_ENDPOINT` to your provider's endpoint URL.
 
 ## Next Steps
 
 - [ ] Seed initial admin user
 - [ ] Create seed data for categories and tags
+- [ ] Setup S3 bucket and IAM credentials
+- [ ] Test media upload functionality
 - [ ] Test admin panel access

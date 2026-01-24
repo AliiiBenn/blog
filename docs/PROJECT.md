@@ -1,5 +1,9 @@
 # Personal Blog Project
 
+> **📚 Internal Developer Documentation**
+>
+> This documentation is intended for **internal developers** working on this project. It contains technical specifications, architecture decisions, and implementation guidelines. For user-facing documentation, please refer to the public README.md.
+
 ## Overview
 
 A modern, full-featured personal blog built with Next.js 16 and PayloadCMS, featuring a clean Vercel/Terminal-inspired design with full dark theme.
@@ -13,6 +17,12 @@ A modern, full-featured personal blog built with Next.js 16 and PayloadCMS, feat
 - **Tailwind CSS**
 - **shadcn/ui** (component library)
 
+### State & Data Fetching
+- **TanStack Query** (React Query) - Server state management
+- **Zustand** - Client state (if needed)
+- **React Context** - Theme, auth
+- **Next.js Server Actions** - No REST API routes
+
 ### Backend & CMS
 - **PayloadCMS** (Headless CMS)
 - **PostgreSQL** (Vercel Postgres)
@@ -20,9 +30,22 @@ A modern, full-featured personal blog built with Next.js 16 and PayloadCMS, feat
 
 ### Infrastructure
 - **Vercel** (deployment)
-- **Vercel Blob Storage** (image uploads)
+- **AWS S3** (image uploads)
 
 ## Core Features
+
+### Technical Approach
+
+**No API Routes - Server Actions Only**
+- All server operations use Next.js Server Actions
+- Located in `@/api/` (NOT `/app/api/`)
+- Type-safe with full TypeScript support
+- TanStack Query handles caching and state
+
+**Hybrid Rendering Strategy**
+- Server Components for static content (default)
+- Client Components + Server Actions for interactivity
+- TanStack Query for data fetching and caching
 
 ### Content Management
 - **Blog Posts** with rich text editor (Payload's built-in editor)
@@ -78,15 +101,17 @@ Given that the blog won't have thousands of posts, a local search algorithm is s
 - Relevance scoring (title > excerpt > content)
 - Category and tag filtering
 - Paginated results
+- **Server Action** (no API route)
+- **TanStack Query** for caching and debouncing
 
 No external search service (Algolia, Meilisearch) needed initially.
 
 ## Authentication
 
-Single admin user access via PayloadCMS built-in authentication:
+Admin user access via PayloadCMS built-in authentication:
 - Email/password login
 - Admin panel access only
-- No public user accounts
+- Single admin user (no public user accounts)
 
 ## Development Goals
 
