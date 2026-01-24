@@ -22,16 +22,20 @@ export const getPosts = async (options: GetPostsOptions = {}): Promise<Post[]> =
     if (category) {
       and.push({
         category: {
-          equals: category,
-        },
+          slug: {
+            equals: category,
+          },
+        } as any,
       })
     }
 
     if (tag) {
       and.push({
         tags: {
-          in: [tag],
-        },
+          slug: {
+            in: [tag],
+          },
+        } as any,
       })
     }
 
@@ -110,7 +114,7 @@ export const getRelatedPosts = async (
         and: [
           { id: { not_equals: postId } },
           { status: { equals: 'published' } },
-          { category: { equals: categorySlug } },
+          { category: { slug: { equals: categorySlug } } as any },
         ],
       },
       sort: '-publishedDate',
