@@ -151,16 +151,29 @@ export const Posts: CollectionConfig = {
         }
 
         // Auto-calculate reading time (average 200 words per minute)
-        if (data.content) {
-          const wordCount = data.content
-            .map((node: { type?: string; text?: string }) => {
-              if (node.type === 'text') {
-                return node.text?.split(/\s+/).filter(Boolean).length || 0
-              }
-              return 0
-            })
-            .reduce((acc: number, count: number) => acc + count, 0)
+        if (data.content && typeof data.content === 'object') {
+          const content = data.content as any
+          let text = ''
 
+          // Extract text from richText content
+          const extractText = (nodes: any[]): void => {
+            if (!Array.isArray(nodes)) return
+
+            for (const node of nodes) {
+              if (node.type === 'text' && node.text) {
+                text += node.text + ' '
+              }
+              if (node.children) {
+                extractText(node.children)
+              }
+            }
+          }
+
+          if (content.root?.children) {
+            extractText(content.root.children)
+          }
+
+          const wordCount = text.split(/\s+/).filter(Boolean).length
           data.readingTime = Math.ceil(wordCount / 200) || 1
         }
       },
