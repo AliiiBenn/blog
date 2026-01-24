@@ -1,59 +1,120 @@
-import { headers as getHeaders } from 'next/headers.js'
-import Image from 'next/image'
-import { getPayload } from 'payload'
-import React from 'react'
-import { fileURLToPath } from 'url'
+import Link from 'next/link'
+import type { Metadata } from 'next'
+import type { Category } from '@/payload-types'
+import { getRecentPosts } from '@/app/actions/posts'
+import { getCategories, getFeaturedCategories } from '@/app/actions/categories'
+import { PostGrid } from '@/components/posts/post-grid'
+import { CategoryCard } from '@/components/categories/category-card'
+import { Button } from '@/components/ui/button'
+import { ArrowRight } from 'lucide-react'
 
-import config from '@/payload.config'
-import './styles.css'
+export const metadata: Metadata = {
+  title: 'Home',
+  description: 'A modern blog built with Payload CMS and Next.js',
+}
 
 export default async function HomePage() {
-  const headers = await getHeaders()
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
+  const [featuredCategories, allCategories] = await Promise.all([
+    getFeaturedCategories(),
+    getCategories(),
+  ])
+  const recentPosts = await getRecentPosts(6)
 
-  const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
+  const categories = featuredCategories.length > 0 ? featuredCategories : allCategories.slice(0, 6)
+
+  // Calculate post count per category
+  const categoriesWithCount = await Promise.all(
+    categories.map(async (category: Category) => {
+      const { getPosts } = await import('@/app/actions/posts')
+      const categoryPosts = await getPosts({ category: category.slug, limit: 100 })
+      return {
+        category,
+        count: categoryPosts.length,
+      }
+    }),
+  )
 
   return (
-    <div className="home">
-      <div className="content">
-        <picture>
-          <source srcSet="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg" />
-          <Image
-            alt="Payload Logo"
-            height={65}
-            src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg"
-            width={65}
-          />
-        </picture>
-        {!user && <h1>Welcome to your new project.</h1>}
-        {user && <h1>Welcome back, {user.email}</h1>}
-        <div className="links">
-          <a
-            className="admin"
-            href={payloadConfig.routes.admin}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Go to admin panel
-          </a>
-          <a
-            className="docs"
-            href="https://payloadcms.com/docs"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Documentation
-          </a>
+    <div>
+      {/* Hero Section */}
+      <section className="border-b bg-gradient-to-b from-background to-muted/20 py-24">
+        <div className="container">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl">
+              Welcome to My Blog
+            </h1>
+            <p className="mb-8 text-lg text-muted-foreground sm:text-xl">
+              Exploring the intersection of technology, design, and human experience
+              through in-depth articles.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" asChild>
+                <Link href="/blog">
+                  Browse Articles
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="#categories">Explore Categories</Link>
+              </Button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="footer">
-        <p>Update this page by editing</p>
-        <a className="codeLink" href={fileURL}>
-          <code>app/(frontend)/page.tsx</code>
-        </a>
-      </div>
+      </section>
+
+      {/* Featured Categories */}
+      <section id="categories" className="border-b py-16">
+        <div className="container">
+          <div className="mb-8 text-center">
+            <h2 className="mb-3 text-3xl font-bold">Explore by Category</h2>
+            <p className="text-muted-foreground">
+              Browse articles organized by topic
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {categoriesWithCount.map(({ category, count }: { category: Category; count: number }) => (
+              <CategoryCard key={category.id} category={category} postCount={count} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Posts */}
+      <section className="py-16">
+        <div className="container">
+          <div className="mb-8 flex items-center justify-between">
+            <div>
+              <h2 className="mb-3 text-3xl font-bold">Latest Articles</h2>
+              <p className="text-muted-foreground">
+                Fresh insights and tutorials
+              </p>
+            </div>
+            <Button variant="outline" asChild>
+              <Link href="/blog">
+                View All
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+          <PostGrid posts={recentPosts} />
+        </div>
+      </section>
+
+      {/* Newsletter CTA (future feature) */}
+      <section className="border-t bg-muted/30 py-16">
+        <div className="container">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="mb-4 text-2xl font-bold">Stay Updated</h2>
+            <p className="mb-6 text-muted-foreground">
+              Get the latest articles delivered straight to your inbox.
+            </p>
+            <Button size="lg" disabled>
+              Subscribe to Newsletter
+              <span className="ml-2 text-xs">(Coming Soon)</span>
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
