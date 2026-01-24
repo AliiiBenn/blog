@@ -41,7 +41,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const iconData = typeof category.icon === 'object' && category.icon !== null ? category.icon : null
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="px-4 py-12 sm:px-6 lg:px-8">
       <div className="mb-8">
         <Link
           href="/"

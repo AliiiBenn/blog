@@ -39,7 +39,7 @@ export default async function TagPage({ params }: TagPageProps) {
   const posts = await getPosts({ tag: slug, limit: 10 })
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="px-4 py-12 sm:px-6 lg:px-8">
       <div className="mb-8">
         <Link
           href="/"

@@ -36,10 +36,10 @@ export default async function HomePage() {
   )
 
   return (
-    <div className="bg-background">
+    <div className="bg-background px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
       <section className="border-b bg-background py-24">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div>
           <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
             <div className="flex-1 text-center lg:text-left">
               <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl">
@@ -78,7 +78,7 @@ export default async function HomePage() {
 
       {/* Featured Categories */}
       <section id="categories" className="border-x border-border bg-background py-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div>
           <div className="mb-8 text-center">
             <h2 className="mb-3 text-3xl font-bold">Explore by Category</h2>
             <p className="text-muted-foreground">
@@ -95,7 +95,7 @@ export default async function HomePage() {
 
       {/* Latest Posts */}
       <section className="border-x border-border bg-background py-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div>
           <div className="mb-8 flex items-center justify-between">
             <div>
               <h2 className="mb-3 text-3xl font-bold">Latest Articles</h2>
@@ -116,7 +116,7 @@ export default async function HomePage() {
 
       {/* Newsletter CTA (future feature) */}
       <section className="border-x border-t border-border bg-background py-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="mb-4 text-2xl font-bold">Stay Updated</h2>
             <p className="mb-6 text-muted-foreground">

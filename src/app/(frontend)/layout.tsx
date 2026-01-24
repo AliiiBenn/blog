@@ -26,7 +26,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           <QueryClientProvider>
             <div className="flex min-h-screen flex-col">
               <Header />
-              <main className="flex-1">{children}</main>
+              <main className="flex-1 mx-auto max-w-5xl w-full">{children}</main>
               <Footer />
             </div>
             <MobileMenu />
