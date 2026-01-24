@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import type { Category } from '@/payload-types'
@@ -39,24 +40,39 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="border-b bg-gradient-to-b from-background to-muted/20 py-24">
         <div className="container">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl">
-              Welcome to My Blog
-            </h1>
-            <p className="mb-8 text-lg text-muted-foreground sm:text-xl">
-              Exploring the intersection of technology, design, and human experience
-              through in-depth articles.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" asChild>
-                <Link href="/blog">
-                  Browse Articles
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="#categories">Explore Categories</Link>
-              </Button>
+          <div className="mx-auto max-w-5xl">
+            <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
+              <div className="flex-1 text-center lg:text-left">
+                <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl">
+                  Welcome to My Blog
+                </h1>
+                <p className="mb-8 text-lg text-muted-foreground sm:text-xl">
+                  Exploring the intersection of technology, design, and human experience
+                  through in-depth articles.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
+                  <Button size="lg" asChild>
+                    <Link href="/blog">
+                      Browse Articles
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                    <Link href="#categories">Explore Categories</Link>
+                  </Button>
+                </div>
+              </div>
+
+              <div className="relative size-64 flex-shrink-0 overflow-hidden rounded-full border-4 border-background lg:size-80">
+                <Image
+                  src="/me.png"
+                  alt="Author"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="320px"
+                />
+              </div>
             </div>
           </div>
         </div>
