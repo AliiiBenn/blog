@@ -31,7 +31,7 @@ export default async function BlogPage(
   const recentPosts = await getRecentPosts(3)
 
   return (
-    <div className="container py-12">
+    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
       <header className="mb-12">
         <h1 className="mb-4 text-4xl font-bold sm:text-5xl">Blog</h1>
         <p className="text-lg text-muted-foreground">

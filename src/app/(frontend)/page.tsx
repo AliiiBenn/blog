@@ -36,51 +36,49 @@ export default async function HomePage() {
   )
 
   return (
-    <div>
+    <div className="bg-background">
       {/* Hero Section */}
-      <section className="border-b bg-gradient-to-b from-background to-muted/20 py-24">
-        <div className="container">
-          <div className="mx-auto max-w-5xl">
-            <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
-              <div className="flex-1 text-center lg:text-left">
-                <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl">
-                  Welcome to My Blog
-                </h1>
-                <p className="mb-8 text-lg text-muted-foreground sm:text-xl">
-                  Exploring the intersection of technology, design, and human experience
-                  through in-depth articles.
-                </p>
-                <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
-                  <Button size="lg" asChild>
-                    <Link href="/blog">
-                      Browse Articles
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <Link href="#categories">Explore Categories</Link>
-                  </Button>
-                </div>
+      <section className="border-b bg-background py-24">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
+            <div className="flex-1 text-center lg:text-left">
+              <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl">
+                Welcome to My Blog
+              </h1>
+              <p className="mb-8 text-lg text-muted-foreground sm:text-xl">
+                Exploring the intersection of technology, design, and human experience
+                through in-depth articles.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
+                <Button size="lg" asChild>
+                  <Link href="/blog">
+                    Browse Articles
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="#categories">Explore Categories</Link>
+                </Button>
               </div>
+            </div>
 
-              <div className="relative size-64 flex-shrink-0 overflow-hidden rounded-full border-4 border-background lg:size-80">
-                <Image
-                  src="/me.png"
-                  alt="Author"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="320px"
-                />
-              </div>
+            <div className="relative size-64 flex-shrink-0 overflow-hidden rounded-full border-4 border-border lg:size-80">
+              <Image
+                src="/me.png"
+                alt="Author"
+                fill
+                className="object-cover"
+                priority
+                sizes="320px"
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Categories */}
-      <section id="categories" className="border-b py-16">
-        <div className="container">
+      <section id="categories" className="border-x border-border bg-background py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 text-center">
             <h2 className="mb-3 text-3xl font-bold">Explore by Category</h2>
             <p className="text-muted-foreground">
@@ -96,8 +94,8 @@ export default async function HomePage() {
       </section>
 
       {/* Latest Posts */}
-      <section className="py-16">
-        <div className="container">
+      <section className="border-x border-border bg-background py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 flex items-center justify-between">
             <div>
               <h2 className="mb-3 text-3xl font-bold">Latest Articles</h2>
@@ -117,8 +115,8 @@ export default async function HomePage() {
       </section>
 
       {/* Newsletter CTA (future feature) */}
-      <section className="border-t bg-muted/30 py-16">
-        <div className="container">
+      <section className="border-x border-t border-border bg-background py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="mb-4 text-2xl font-bold">Stay Updated</h2>
             <p className="mb-6 text-muted-foreground">
