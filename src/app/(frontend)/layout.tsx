@@ -1,18 +1,21 @@
 import React from 'react'
+import { QueryClientProvider } from '@/lib/providers'
 import './styles.css'
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description: 'A modern blog built with Payload CMS and Next.js',
+  title: 'Blog',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <main>{children}</main>
+        <QueryClientProvider>
+          <main>{children}</main>
+        </QueryClientProvider>
       </body>
     </html>
   )
