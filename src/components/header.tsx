@@ -11,7 +11,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">
-      <div className="mx-auto max-w-7xl px-4 flex h-16 items-center justify-between sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 flex h-14 items-center justify-between sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center space-x-2">
           <div className="relative size-8">
             <Image src="/icon.svg" alt="Blog" fill className="object-contain" />
