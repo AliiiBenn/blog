@@ -38,7 +38,7 @@ export default async function HomePage() {
   return (
     <div className="bg-background px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
-      <section className="border-b bg-background py-24">
+      <section className="border-x border-t border-border bg-background py-24">
         <div>
           <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
             <div className="flex-1 text-center lg:text-left">
