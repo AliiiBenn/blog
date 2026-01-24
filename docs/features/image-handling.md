@@ -2,14 +2,14 @@
 
 ## Overview
 
-Implement image upload, storage, optimization, and display using PayloadCMS, Vercel Blob Storage, and Next.js Image component.
+Implement image upload, storage, optimization, and display using PayloadCMS, AWS S3, and Next.js Image component.
 
-## Vercel Blob Storage Setup
+## S3 Storage Setup
 
-### 1. Install Payload Vercel Blob Storage Adapter
+### 1. Install Payload S3 Storage Adapter
 
 ```bash
-pnpm add @payloadcms/storage-vercel-blob
+pnpm add @payloadcms/storage-s3 @aws-sdk/client-s3
 ```
 
 ### 2. Configure Payload
@@ -17,16 +17,22 @@ pnpm add @payloadcms/storage-vercel-blob
 Update `payload/init.ts`:
 
 ```typescript
-import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob';
+import { s3Storage } from '@payloadcms/storage-s3';
 
 export default buildConfig({
   // ... other config
   plugins: [
-    vercelBlobStorage({
+    s3Storage({
       collections: {
         media: true,
       },
-      token: process.env.BLOB_READ_WRITE_TOKEN,
+      bucket: process.env.S3_BUCKET_NAME,
+      region: process.env.S3_REGION,
+      credentials: {
+        accessKeyId: process.env.S3_ACCESS_KEY_ID,
+        secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+      },
+      endpoint: process.env.S3_ENDPOINT, // Optional: for S3-compatible services
     }),
   ],
 });
@@ -243,7 +249,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**.blob.vercel-storage.com',
+        hostname: '**.s3.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.s3.**.amazonaws.com',
       },
     ],
     minimumCacheTTL: 60 * 60 * 24 * 7, // 7 days
