@@ -28,7 +28,7 @@ export default function AboutPage() {
 
       {/* Content Section */}
       <section className="bg-background">
-        <div className="mx-auto max-w-5xl border-x border-b border-border px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl border-x border-b border-border px-4 py-12 sm:px-6 lg:px-8 min-h-[calc(100vh-14rem)]">
           <div className="grid gap-12 md:grid-cols-3">
             {/* Profile Card */}
             <div className="md:col-span-1">
