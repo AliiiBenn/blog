@@ -65,17 +65,42 @@ export default async function HomePage() {
                   <span className="text-foreground"> mission = </span>
                   <span className="text-foreground">&quot;Creating a generation of exceptional developers&quot;</span>
                 </p>
-                <p className="mb-8 font-mono text-sm text-muted-foreground">
+                <p className="mb-6 font-mono text-sm text-muted-foreground">
                   <span>through</span>
                   <span className="text-foreground"> Developers Secrets &amp; Nesalia Inc</span>
                   <span className="text-foreground">;</span>
                 </p>
+
+                {/* Tech Stack */}
+                <div className="mb-8 space-y-2">
+                  <p className="font-mono text-xs text-muted-foreground">
+                    <span className="text-foreground">export const</span>
+                    <span className="text-foreground"> stack = </span>
+                    <span className="text-foreground">[</span>
+                  </p>
+                  <div className="flex flex-wrap gap-2 pl-4">
+                    <Badge variant="secondary" className="font-mono text-xs">&quot;Python&quot;</Badge>
+                    <Badge variant="secondary" className="font-mono text-xs">&quot;TypeScript&quot;</Badge>
+                    <Badge variant="secondary" className="font-mono text-xs">&quot;React&quot;</Badge>
+                    <Badge variant="secondary" className="font-mono text-xs">&quot;Next.js&quot;</Badge>
+                    <Badge variant="secondary" className="font-mono text-xs">&quot;Node.js&quot;</Badge>
+                  </div>
+                  <p className="font-mono text-xs text-muted-foreground">
+                    <span className="text-foreground">];</span>
+                  </p>
+                </div>
 
                 <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
                   <Button size="lg" className="font-mono" asChild>
                     <Link href="/blog">
                       <Terminal className="mr-2 h-4 w-4" />
                       ./browse_articles.sh
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                  <Button size="lg" variant="outline" className="font-mono" asChild>
+                    <Link href="/about">
+                      ./about_me.sh
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
