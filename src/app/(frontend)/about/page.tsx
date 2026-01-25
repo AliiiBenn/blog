@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Terminal, ChevronRight, Mail, MapPin, FileText } from 'lucide-react'
-import { Kbd } from '@/components/ui/kbd'
 
 export const metadata: Metadata = {
   title: 'About',

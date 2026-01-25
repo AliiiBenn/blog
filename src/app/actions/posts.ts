@@ -1,6 +1,7 @@
 'use server'
 
 import type { Post } from '@/payload-types'
+import type { Where } from 'payload'
 import { getPayloadClient } from '@/lib/payload'
 
 interface GetPostsOptions {
@@ -15,7 +16,7 @@ export const getPosts = async (options: GetPostsOptions = {}): Promise<Post[]> =
     const payload = await getPayloadClient()
     const { category, tag, limit = 10, page = 1 } = options
 
-    const and: Record<string, unknown>[] = [
+    const and: Where[] = [
       { status: { equals: 'published' } },
     ]
 
@@ -25,7 +26,7 @@ export const getPosts = async (options: GetPostsOptions = {}): Promise<Post[]> =
           slug: {
             equals: category,
           },
-        } as any,
+        },
       })
     }
 
@@ -35,14 +36,14 @@ export const getPosts = async (options: GetPostsOptions = {}): Promise<Post[]> =
           slug: {
             in: [tag],
           },
-        } as any,
+        },
       })
     }
 
     const result = await payload.find({
       collection: 'posts',
       where: {
-        and: and as any,
+        and,
       },
       sort: '-publishedDate',
       limit,
@@ -114,7 +115,7 @@ export const getRelatedPosts = async (
         and: [
           { id: { not_equals: postId } },
           { status: { equals: 'published' } },
-          { category: { slug: { equals: categorySlug } } as any },
+          { category: { slug: { equals: categorySlug } } },
         ],
       },
       sort: '-publishedDate',

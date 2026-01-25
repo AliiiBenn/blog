@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge'
 import { RichText } from '@/components/richtext'
 import { ArrowRight, Calendar, Clock, ChevronRight, FileText } from 'lucide-react'
 import { format } from 'date-fns'
+import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
 interface PostPageProps {
   params: Promise<{ slug: string }>
@@ -160,7 +161,7 @@ export default async function PostPage({ params }: PostPageProps) {
           {/* Article Content */}
           <article className="mb-16">
             {post.content && typeof post.content === 'object' ? (
-              <RichText data={post.content as any} className="max-w-none" />
+              <RichText data={post.content as SerializedEditorState} className="max-w-none" />
             ) : post.excerpt ? (
               <div className="font-mono text-sm whitespace-pre-wrap text-foreground break-words">
                 {post.excerpt}

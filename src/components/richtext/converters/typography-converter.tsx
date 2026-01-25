@@ -36,7 +36,7 @@ export const typographyConverter: JSXConverters<SerializedHeadingNode> = {
     if (node.tag === 'h3') return <TypographyH3 id={id}>{children}</TypographyH3>
     if (node.tag === 'h4') return <TypographyH4 id={id}>{children}</TypographyH4>
 
-    const Tag = node.tag as keyof JSX.IntrinsicElements
+    const Tag = node.tag as React.ElementType
     return <Tag id={id}>{text}</Tag>
   },
 
@@ -45,7 +45,7 @@ export const typographyConverter: JSXConverters<SerializedHeadingNode> = {
   ),
 
   link: ({ node, nodesToJSX }) => {
-    const fields = (node as any)?.fields
+    const fields = (node as { fields?: { linkType?: string; doc?: { value?: { slug: string }; relationTo: string }; url?: string } })?.fields
     let href = '#'
     if (fields?.linkType === 'internal' && fields?.doc) {
       const doc = fields.doc
@@ -66,7 +66,7 @@ export const typographyConverter: JSXConverters<SerializedHeadingNode> = {
 
   list: ({ node, nodesToJSX }) => {
     const items = nodesToJSX({ nodes: node.children })
-    if ((node as any).listType === 'number') {
+    if ((node as { listType?: string }).listType === 'number') {
       return <TypographyOL>{items}</TypographyOL>
     }
     return <TypographyList>{items}</TypographyList>
@@ -84,7 +84,7 @@ export const typographyConverter: JSXConverters<SerializedHeadingNode> = {
 
   blocks: {
     Code: ({ node }) => {
-      const fields = (node as any)?.fields || {}
+      const fields = (node as { fields?: { language?: string; code?: string } })?.fields || {}
       const language = fields.language || 'text'
       const code = fields.code || ''
 

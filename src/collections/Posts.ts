@@ -152,19 +152,20 @@ export const Posts: CollectionConfig = {
 
         // Auto-calculate reading time (average 200 words per minute)
         if (data.content && typeof data.content === 'object') {
-          const content = data.content as any
+          const content = data.content as { root?: { children?: unknown[] } }
           let text = ''
 
           // Extract text from richText content
-          const extractText = (nodes: any[]): void => {
+          const extractText = (nodes: unknown[]): void => {
             if (!Array.isArray(nodes)) return
 
             for (const node of nodes) {
-              if (node.type === 'text' && node.text) {
-                text += node.text + ' '
+              const typedNode = node as { type?: string; text?: string; children?: unknown[] }
+              if (typedNode.type === 'text' && typedNode.text) {
+                text += typedNode.text + ' '
               }
-              if (node.children) {
-                extractText(node.children)
+              if (typedNode.children) {
+                extractText(typedNode.children)
               }
             }
           }

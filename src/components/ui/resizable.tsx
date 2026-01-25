@@ -6,9 +6,9 @@ import * as ResizablePrimitive from "react-resizable-panels"
 
 import { cn } from "@/lib/utils"
 
-const PanelGroup = ResizablePrimitive.PanelGroup as any
-const Panel = ResizablePrimitive.Panel as any
-const PanelResizeHandle = ResizablePrimitive.PanelResizeHandle as any
+const PanelGroup = ResizablePrimitive.PanelGroup as React.ElementType
+const Panel = ResizablePrimitive.Panel as React.ElementType
+const PanelResizeHandle = ResizablePrimitive.PanelResizeHandle as React.ElementType
 
 function ResizablePanelGroup({
   className,

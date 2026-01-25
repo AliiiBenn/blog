@@ -1,7 +1,7 @@
 import type { SerializedLinkNode } from '@payloadcms/richtext-lexical'
 
 export const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
-  const fields = (linkNode as any)?.fields
+  const fields = (linkNode as { fields?: { linkType?: string; doc?: { value?: { slug: string }; relationTo: string }; url?: string } })?.fields
   if (!fields) return '#'
 
   if (fields?.linkType === 'internal' && fields?.doc) {

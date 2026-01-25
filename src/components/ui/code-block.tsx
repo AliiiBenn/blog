@@ -13,7 +13,7 @@ export type CodeBlockProps = {
   language?: string
 } & React.HTMLProps<HTMLDivElement>
 
-export function CodeBlock({ children, className, filename, language, ...props }: CodeBlockProps) {
+export function CodeBlock({ children, className, _filename, _language, ...props }: CodeBlockProps) {
   return (
     <figure
       className={cn(
@@ -49,7 +49,7 @@ export function CodeBlockCode({
   useEffect(() => {
     async function highlight() {
       try {
-        const html = await codeToHtml(code, { lang: language as any, theme })
+        const html = await codeToHtml(code, { lang: language as keyof typeof import('shiki/langs'), theme })
         setHighlightedHtml(html)
       } catch {
         // Fallback to plain text if language is not supported
