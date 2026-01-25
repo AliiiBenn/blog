@@ -6,7 +6,6 @@ import { getPostBySlug, getRelatedPosts, getRecentPosts } from '@/app/actions/po
 import { PostGrid } from '@/components/posts/post-grid'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Kbd } from '@/components/ui/kbd'
 import { RichText } from '@/components/richtext'
 import { ArrowRight, Calendar, Clock, ChevronRight, FileText } from 'lucide-react'
 import { format } from 'date-fns'
@@ -78,17 +77,6 @@ export default async function PostPage({ params }: PostPageProps) {
       <section className="bg-background">
         <div className="mx-auto max-w-5xl border-x border-t border-b border-border">
           <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-          {/* Back Button */}
-          <div className="mb-8">
-            <Link
-              href="/blog"
-              className="inline-flex items-center font-mono text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Kbd className="bg-muted mr-2">$</Kbd>
-              <span>cd ..</span>
-            </Link>
-          </div>
-
           {/* Post Header */}
           <header className="mb-8">
             {/* Metadata */}
