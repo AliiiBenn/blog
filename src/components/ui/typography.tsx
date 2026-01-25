@@ -1,11 +1,11 @@
 import { cn } from '@/lib/utils'
 
-// Typography components with terminal style
+// Typography components with modern, readable styling
 
 export function TypographyH1({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h1
-      className={cn('font-mono text-3xl font-bold sm:text-4xl lg:text-5xl mb-4', className)}
+      className={cn('scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl mb-6', className)}
       {...props}
     />
   )
@@ -14,7 +14,7 @@ export function TypographyH1({ className, ...props }: React.HTMLAttributes<HTMLH
 export function TypographyH2({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h2
-      className={cn('font-mono text-2xl font-bold sm:text-3xl lg:text-4xl mb-3 mt-8 border-b border-border pb-2', className)}
+      className={cn('scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-10 mb-4', className)}
       {...props}
     />
   )
@@ -23,7 +23,7 @@ export function TypographyH2({ className, ...props }: React.HTMLAttributes<HTMLH
 export function TypographyH3({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3
-      className={cn('font-mono text-xl font-bold sm:text-2xl lg:text-3xl mb-2 mt-6', className)}
+      className={cn('scroll-m-20 text-2xl font-semibold tracking-tight mt-8 mb-4', className)}
       {...props}
     />
   )
@@ -32,7 +32,7 @@ export function TypographyH3({ className, ...props }: React.HTMLAttributes<HTMLH
 export function TypographyH4({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h4
-      className={cn('font-mono text-lg font-bold sm:text-xl lg:text-2xl mb-2 mt-4', className)}
+      className={cn('scroll-m-20 text-xl font-semibold tracking-tight mt-6 mb-4', className)}
       {...props}
     />
   )
@@ -41,7 +41,7 @@ export function TypographyH4({ className, ...props }: React.HTMLAttributes<HTMLH
 export function TypographyP({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn('font-mono text-sm sm:text-base text-foreground leading-7 mb-4 [&:not(:first-child)]:mt-4 break-words', className)}
+      className={cn('leading-7 [&:not(:first-child)]:mt-6 text-base', className)}
       {...props}
     />
   )
@@ -50,7 +50,7 @@ export function TypographyP({ className, ...props }: React.HTMLAttributes<HTMLPa
 export function TypographyBlockquote({ className, ...props }: React.HTMLAttributes<HTMLQuoteElement>) {
   return (
     <blockquote
-      className={cn('font-mono text-sm text-muted-foreground border-l-2 border-border pl-4 my-4 italic', className)}
+      className={cn('mt-6 border-l-4 pl-6 italic text-muted-foreground', className)}
       {...props}
     />
   )
@@ -59,7 +59,7 @@ export function TypographyBlockquote({ className, ...props }: React.HTMLAttribut
 export function TypographyList({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) {
   return (
     <ul
-      className={cn('font-mono text-sm text-foreground my-4 ml-6 list-disc space-y-1', className)}
+      className={cn('my-6 ml-6 list-disc space-y-2', className)}
       {...props}
     />
   )
@@ -68,7 +68,7 @@ export function TypographyList({ className, ...props }: React.HTMLAttributes<HTM
 export function TypographyOL({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) {
   return (
     <ol
-      className={cn('font-mono text-sm text-foreground my-4 ml-6 list-decimal space-y-1', className)}
+      className={cn('my-6 ml-6 list-decimal space-y-2', className)}
       {...props}
     />
   )
@@ -77,7 +77,7 @@ export function TypographyOL({ className, ...props }: React.HTMLAttributes<HTMLO
 export function TypographyInlineCode({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
     <code
-      className={cn('font-mono text-xs bg-muted/50 border border-border rounded px-1.5 py-0.5 text-foreground', className)}
+      className={cn('relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold', className)}
       {...props}
     />
   )
@@ -86,7 +86,7 @@ export function TypographyInlineCode({ className, ...props }: React.HTMLAttribut
 export function TypographyLead({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn('font-mono text-base text-muted-foreground', className)}
+      className={cn('text-xl text-muted-foreground', className)}
       {...props}
     />
   )
@@ -95,7 +95,7 @@ export function TypographyLead({ className, ...props }: React.HTMLAttributes<HTM
 export function TypographyLarge({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn('font-mono text-lg font-semibold', className)}
+      className={cn('text-lg font-semibold', className)}
       {...props}
     />
   )
@@ -104,7 +104,7 @@ export function TypographyLarge({ className, ...props }: React.HTMLAttributes<HT
 export function TypographySmall({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
     <small
-      className={cn('font-mono text-xs', className)}
+      className={cn('text-sm font-medium leading-none', className)}
       {...props}
     />
   )
@@ -113,7 +113,7 @@ export function TypographySmall({ className, ...props }: React.HTMLAttributes<HT
 export function TypographyMuted({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn('font-mono text-xs text-muted-foreground', className)}
+      className={cn('text-sm text-muted-foreground', className)}
       {...props}
     />
   )
@@ -121,8 +121,8 @@ export function TypographyMuted({ className, ...props }: React.HTMLAttributes<HT
 
 export function TypographyTable({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) {
   return (
-    <div className={cn('my-6 w-full overflow-x-auto', className)}>
-      <table className="w-full font-mono text-sm" {...props} />
+    <div className={cn('my-6 w-full overflow-y-auto', className)}>
+      <table className="w-full" {...props} />
     </div>
   )
 }
@@ -131,7 +131,7 @@ export function TypographyAnchor({ className, href, ...props }: React.HTMLAttrib
   return (
     <a
       href={href}
-      className={cn('font-mono text-sm underline underline-offset-2 text-primary hover:text-primary/80 transition-colors', className)}
+      className={cn('font-medium underline underline-offset-4 text-primary hover:text-primary/80 transition-colors', className)}
       {...props}
     />
   )
@@ -140,7 +140,7 @@ export function TypographyAnchor({ className, href, ...props }: React.HTMLAttrib
 export function TypographyHr({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) {
   return (
     <hr
-      className={cn('my-6 border-border', className)}
+      className={cn('my-8 border-border', className)}
       {...props}
     />
   )
