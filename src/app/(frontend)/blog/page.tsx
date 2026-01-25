@@ -45,7 +45,7 @@ export default async function BlogPage(
 
       {/* Main Content */}
       <section className="bg-background">
-        <div className="mx-auto max-w-5xl border-x border-t border-b border-border px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl border-x border-t border-b border-border py-12">
           <PostGrid posts={posts} />
 
           {posts.length === 12 && (

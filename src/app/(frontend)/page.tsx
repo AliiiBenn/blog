@@ -108,7 +108,7 @@ export default async function HomePage() {
               </div>
 
               {/* Terminal-style profile */}
-              <div className="flex-shrink-0 w-full max-w-[300px] lg:ml-8 lg:max-w-none">
+              <div className="flex-shrink-0 w-full max-w-[280px] lg:ml-8 lg:max-w-[280px]">
                 <div className="relative overflow-hidden border-2 border-border bg-background">
                   <div className="border-b border-border bg-muted/50 px-3 py-2 font-mono text-xs text-muted-foreground">
                     <div className="flex items-center gap-2">
@@ -117,14 +117,14 @@ export default async function HomePage() {
                     </div>
                   </div>
                   <div className="px-4 py-4">
-                    <div className="relative mx-auto aspect-square w-full max-w-[200px] overflow-hidden rounded-full border-2 border-border sm:max-w-[220px] lg:size-56">
+                    <div className="relative mx-auto aspect-square w-full max-w-[180px] overflow-hidden rounded-full border-2 border-border sm:max-w-[200px]">
                       <Image
                         src="/me.png"
                         alt="David Pereira"
                         fill
                         className="object-cover"
                         priority
-                        sizes="(max-width: 640px) 200px, (max-width: 1024px) 220px, 256px"
+                        sizes="(max-width: 640px) 180px, (max-width: 1024px) 200px, 200px"
                       />
                     </div>
                     <div className="mt-4 font-mono text-xs">
