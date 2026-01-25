@@ -7,6 +7,7 @@ import { PostGrid } from '@/components/posts/post-grid'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Kbd } from '@/components/ui/kbd'
+import { RichText } from '@/components/richtext'
 import { ArrowRight, Calendar, Clock, ChevronRight, FileText, Share2 } from 'lucide-react'
 import { format } from 'date-fns'
 
@@ -176,13 +177,13 @@ export default async function PostPage({ params }: PostPageProps) {
 
           {/* Article Content */}
           <article className="mb-16">
-            <div className="prose prose-sm sm:prose-base max-w-none dark:prose-invert font-mono">
-              {/* Content will be rendered here from Payload rich text */}
-              {/* For now, displaying excerpt as placeholder */}
-              {post.excerpt && (
-                <div className="whitespace-pre-wrap text-foreground break-words">{post.excerpt}</div>
-              )}
-            </div>
+            {post.content && typeof post.content === 'object' ? (
+              <RichText data={post.content as any} className="max-w-none" />
+            ) : post.excerpt ? (
+              <div className="font-mono text-sm whitespace-pre-wrap text-foreground break-words">
+                {post.excerpt}
+              </div>
+            ) : null}
           </article>
 
           {/* Related Posts */}
