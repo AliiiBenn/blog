@@ -4,10 +4,9 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { getPostBySlug, getRelatedPosts, getRecentPosts } from '@/app/actions/posts'
 import { PostGrid } from '@/components/posts/post-grid'
-import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { RichText } from '@/components/richtext'
-import { ArrowRight, Calendar, Clock, ChevronRight, FileText } from 'lucide-react'
+import { Calendar, Clock, ChevronRight, FileText } from 'lucide-react'
 import { format } from 'date-fns'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
@@ -77,7 +76,7 @@ export default async function PostPage({ params }: PostPageProps) {
       {/* Main Content */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl border-x border-t border-b border-border">
-          <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
           {/* Post Header */}
           <header className="mb-8">
             {/* Metadata */}
@@ -171,9 +170,9 @@ export default async function PostPage({ params }: PostPageProps) {
 
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
-            <section className="border-t border-border pt-12">
+            <section className="border-t border-border pt-8">
               {/* Section Header */}
-              <div className="mb-6">
+              <div className="mb-4">
                 <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
                   <FileText className="h-4 w-4 text-muted-foreground" />
                   <div className="flex-1 font-mono text-xs text-muted-foreground">
@@ -186,38 +185,16 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
 
           {/* Recent Posts */}
-          <section className="border-t border-border pt-12">
-            <div className="mb-6 flex items-center justify-between">
+          <section className="border-t border-border pt-8">
+            <div className="mb-4">
               <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
                 <FileText className="h-4 w-4 text-muted-foreground" />
                 <div className="flex-1 font-mono text-xs text-muted-foreground">
                   ./recent_posts.sh
                 </div>
               </div>
-              <Button variant="outline" size="default" className="font-mono hidden sm:flex" asChild>
-                <Link href="/blog">
-                  ./view_all.sh
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3">
-              {recentPosts.map((recentPost) => (
-                <Link
-                  key={recentPost.id}
-                  href={`/blog/${recentPost.slug}`}
-                  className="group flex flex-col gap-2 border border-r border-b border-border bg-muted/20 p-4 hover:bg-muted/30 transition-colors"
-                >
-                  <h3 className="font-mono text-sm font-semibold line-clamp-2 group-hover:text-foreground transition-colors">
-                    <span className="text-muted-foreground">{'>'}</span>
-                    <span className="ml-1 break-words">{recentPost.title}</span>
-                  </h3>
-                  <p className="font-mono text-xs text-muted-foreground">
-                    {recentPost.readingTime}m read
-                  </p>
-                </Link>
-              ))}
-            </div>
+            <PostGrid posts={recentPosts} />
           </section>
           </div>
         </div>
