@@ -5,13 +5,14 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Menu } from 'lucide-react'
 import { useAppStore } from '@/lib/store'
+import { CommandPalette } from '@/components/command-palette'
 
 export function Header() {
   const { setIsMobileMenuOpen } = useAppStore()
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background">
-      <div className="mx-auto max-w-7xl px-4 flex h-14 items-center justify-between sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 h-14 w-full border-b bg-background">
+      <div className="mx-auto max-w-7xl h-full px-4 flex items-center justify-between sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center space-x-2">
           <div className="relative size-8">
             <Image src="/icon.svg" alt="Blog" fill className="object-contain" />
@@ -40,9 +41,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button variant="outline" size="sm" className="hidden md:flex" asChild>
-            <Link href="/search">Search</Link>
-          </Button>
+          <CommandPalette />
 
           <Button
             variant="ghost"

@@ -18,7 +18,7 @@ export const CategoryCard = ({ category, postCount = 0 }: CategoryCardProps) => 
   return (
     <Link
       href={`/category/${slug}`}
-      className="group flex flex-col overflow-hidden border border-border bg-background transition-all hover:border-muted-foreground/40"
+      className="group flex flex-col overflow-hidden border-r border-b border-border bg-background transition-all hover:border-muted-foreground/40"
     >
       {/* Terminal-style header */}
       <div className="border-b border-border bg-muted/20 px-3 py-2 font-mono text-xs text-muted-foreground">

@@ -1,19 +1,28 @@
 import Link from 'next/link'
+import { ChevronRight } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer className="border-t bg-background">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 md:py-12">
+    <footer className="border-t border-border bg-background">
+      <div className="mx-auto max-w-5xl border-x border-border px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+          {/* About section */}
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold">Blog</h3>
+            <h3 className="font-mono text-sm font-semibold">
+              <span className="text-muted-foreground">{'>'}</span>
+              <span className="ml-2">About</span>
+            </h3>
             <p className="text-sm text-muted-foreground">
-              A modern blog built with Payload CMS and Next.js
+              A blog about web development, design, and technology
             </p>
           </div>
 
+          {/* Navigation */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold">Navigation</h4>
+            <h4 className="mb-3 font-mono text-sm font-semibold">
+              <ChevronRight className="inline h-3 w-3" />
+              <span className="ml-1">Navigation</span>
+            </h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/" className="text-muted-foreground hover:text-foreground">
@@ -33,8 +42,12 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Connect */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold">Connect</h4>
+            <h4 className="mb-3 font-mono text-sm font-semibold">
+              <ChevronRight className="inline h-3 w-3" />
+              <span className="ml-1">Connect</span>
+            </h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <a
@@ -59,8 +72,12 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Legal */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold">Legal</h4>
+            <h4 className="mb-3 font-mono text-sm font-semibold">
+              <ChevronRight className="inline h-3 w-3" />
+              <span className="ml-1">Legal</span>
+            </h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/privacy" className="text-muted-foreground hover:text-foreground">
@@ -76,8 +93,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Blog. All rights reserved.</p>
+        <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
+          <p className="font-mono">
+            &copy; {new Date().getFullYear()} Blog. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
