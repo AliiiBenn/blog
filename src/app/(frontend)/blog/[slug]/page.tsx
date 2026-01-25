@@ -62,7 +62,7 @@ export default async function PostPage({ params }: PostPageProps) {
     <div className="bg-background">
       {/* Header - Terminal Style */}
       <section className="bg-background">
-        <div className="border-x border-border">
+        <div className="mx-auto max-w-5xl border-x border-border">
           {/* Section Header */}
           <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
             <FileText className="h-4 w-4 text-muted-foreground" />
@@ -167,6 +167,7 @@ export default async function PostPage({ params }: PostPageProps) {
               </div>
             ) : null}
           </article>
+          </div>
 
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
@@ -196,7 +197,6 @@ export default async function PostPage({ params }: PostPageProps) {
             </div>
             <PostGrid posts={recentPosts} />
           </section>
-          </div>
         </div>
       </section>
     </div>
