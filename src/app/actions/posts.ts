@@ -27,7 +27,7 @@ export const getPosts = async (options: GetPostsOptions = {}): Promise<Post[]> =
             equals: category,
           },
         },
-      })
+      } as Where)
     }
 
     if (tag) {
@@ -37,7 +37,7 @@ export const getPosts = async (options: GetPostsOptions = {}): Promise<Post[]> =
             in: [tag],
           },
         },
-      })
+      } as Where)
     }
 
     const result = await payload.find({
@@ -115,7 +115,7 @@ export const getRelatedPosts = async (
         and: [
           { id: { not_equals: postId } },
           { status: { equals: 'published' } },
-          { category: { slug: { equals: categorySlug } } },
+          { category: { slug: { equals: categorySlug } } } as Where,
         ],
       },
       sort: '-publishedDate',

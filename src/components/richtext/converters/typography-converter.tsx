@@ -83,8 +83,8 @@ export const typographyConverter: JSXConverters<SerializedHeadingNode> = {
   ),
 
   blocks: {
-    Code: ({ node }) => {
-      const fields = (node as { fields?: { language?: string; code?: string } })?.fields || {}
+    Code: ({ node }: { node: { fields?: { language?: string; code?: string } } }) => {
+      const fields = node?.fields || {}
       const language = fields.language || 'text'
       const code = fields.code || ''
 

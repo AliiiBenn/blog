@@ -9,11 +9,9 @@ import { codeToHtml } from 'shiki'
 export type CodeBlockProps = {
   children?: React.ReactNode
   className?: string
-  filename?: string
-  language?: string
 } & React.HTMLProps<HTMLDivElement>
 
-export function CodeBlock({ children, className, _filename, _language, ...props }: CodeBlockProps) {
+export function CodeBlock({ children, className, ...props }: CodeBlockProps) {
   return (
     <figure
       className={cn(

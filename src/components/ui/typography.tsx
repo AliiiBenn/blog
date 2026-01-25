@@ -127,9 +127,10 @@ export function TypographyTable({ className, ...props }: React.HTMLAttributes<HT
   )
 }
 
-export function TypographyAnchor({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) {
+export function TypographyAnchor({ className, href, ...props }: React.HTMLAttributes<HTMLAnchorElement> & { href?: string }) {
   return (
     <a
+      href={href}
       className={cn('font-mono text-sm underline underline-offset-2 text-primary hover:text-primary/80 transition-colors', className)}
       {...props}
     />
