@@ -14,14 +14,6 @@ export default function AboutPage() {
       {/* Header Section */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl border-x border-border">
-          {/* Terminal Prompt */}
-          <div className="px-4 sm:px-6 lg:px-8 py-4 font-mono text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Kbd className="bg-muted">$</Kbd>
-              <span>cd ~/about</span>
-            </div>
-          </div>
-
           {/* Section Header */}
           <div>
             <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
