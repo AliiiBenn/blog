@@ -171,9 +171,9 @@ export default async function PostPage({ params }: PostPageProps) {
 
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
-            <section className="border-t border-border pt-8">
+            <section className="border-t border-border">
               {/* Section Header */}
-              <div className="mb-4">
+              <div>
                 <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
                   <FileText className="h-4 w-4 text-muted-foreground" />
                   <div className="flex-1 font-mono text-xs text-muted-foreground">
@@ -186,8 +186,8 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
 
           {/* Recent Posts */}
-          <section className="border-t border-border pt-8">
-            <div className="mb-4">
+          <section className="border-t border-border">
+            <div>
               <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
                 <FileText className="h-4 w-4 text-muted-foreground" />
                 <div className="flex-1 font-mono text-xs text-muted-foreground">
