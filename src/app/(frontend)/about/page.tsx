@@ -83,10 +83,6 @@ export default function AboutPage() {
             <div className="md:col-span-2 space-y-8">
               {/* Bio Section */}
               <div>
-                <div className="mb-4 font-mono text-sm font-semibold">
-                  <span className="text-muted-foreground">{'>'}</span>
-                  <span className="ml-2">./bio.sh</span>
-                </div>
                 <div className="prose prose-sm max-w-none dark:prose-invert">
                   <p className="font-mono text-sm text-muted-foreground">
                     Hi, I&apos;m David Pereira, a full-stack developer passionate about Python, Next.js, React, and TypeScript.
@@ -97,30 +93,8 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Skills Section */}
-              <div>
-                <div className="mb-4 font-mono text-sm font-semibold">
-                  <span className="text-muted-foreground">{'>'}</span>
-                  <span className="ml-2">cat skills.json</span>
-                </div>
-                <div className="border border-border bg-muted/20 p-4 font-mono text-sm">
-                  <pre className="text-muted-foreground">
-{`{
-  "languages": ["Python", "TypeScript", "JavaScript"],
-  "frontend": ["React", "Next.js"],
-  "backend": ["Node.js", "Python"],
-  "tools": ["Git", "VS Code", "Terminal"]
-}`}
-                  </pre>
-                </div>
-              </div>
-
               {/* Contact Section */}
               <div>
-                <div className="mb-4 font-mono text-sm font-semibold">
-                  <span className="text-muted-foreground">{'>'}</span>
-                  <span className="ml-2">curl contact.txt</span>
-                </div>
                 <div className="space-y-2 font-mono text-sm">
                   <div className="flex items-center gap-3 text-muted-foreground">
                     <Mail className="h-4 w-4" />
