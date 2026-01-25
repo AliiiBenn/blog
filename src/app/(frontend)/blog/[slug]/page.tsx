@@ -64,15 +64,11 @@ export default async function PostPage({ params }: PostPageProps) {
       {/* Header - Terminal Style */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl border-x border-border">
-          <div className="mx-auto max-w-3xl">
-            {/* Section Header */}
-            <div>
-              <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
-                <FileText className="h-4 w-4 text-muted-foreground" />
-                <div className="flex-1 font-mono text-xs text-muted-foreground truncate">
-                  ~/blog/{slug}
-                </div>
-              </div>
+          {/* Section Header */}
+          <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
+            <FileText className="h-4 w-4 text-muted-foreground" />
+            <div className="flex-1 font-mono text-xs text-muted-foreground truncate">
+              ~/blog/{slug}
             </div>
           </div>
         </div>
