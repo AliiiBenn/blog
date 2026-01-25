@@ -170,27 +170,27 @@ export default async function HomePage() {
 
       {/* Newsletter CTA - Terminal Style */}
       <section className="mx-auto max-w-5xl border-x border-t border-b border-border bg-background px-4 py-12 sm:px-6 lg:px-8">
-        <div className="border-2 border-dashed border-border bg-muted/20 p-8">
+        <div className="border-2 border-dashed border-border bg-muted/20 p-6 sm:p-8">
           <div className="mx-auto max-w-2xl text-center">
             {/* Terminal prompt */}
             <div className="mb-4 font-mono text-xs">
-              <div className="inline-flex items-center gap-2 rounded-t-lg border border-border bg-muted px-3 py-2">
+              <div className="inline-flex items-center gap-2 rounded-t-lg border border-border bg-muted px-2 sm:px-3 py-2 max-w-full overflow-hidden">
                 <Kbd className="bg-background">$</Kbd>
-                <span className="text-muted-foreground">curl --subscribe newsletter</span>
-                <span className="animate-pulse">_</span>
+                <span className="text-muted-foreground truncate">curl --subscribe newsletter</span>
+                <span className="animate-pulse shrink-0">_</span>
               </div>
             </div>
-            <h2 className="mb-4 font-mono text-xl font-bold">
+            <h2 className="mb-4 font-mono text-lg sm:text-xl font-bold">
               <span className="text-muted-foreground">TODO:</span>
-              <span className="ml-2 text-foreground">Stay Updated</span>
+              <span className="ml-2 text-foreground break-words">Stay Updated</span>
             </h2>
             <p className="mb-6 font-mono text-sm text-muted-foreground">
               {/* Get the latest articles delivered straight to your inbox */}
             </p>
-            <Button size="lg" disabled className="font-mono">
+            <Button size="default" disabled className="font-mono w-full sm:w-auto">
               <span className="text-muted-foreground">[ ]</span>
-              <span className="ml-2">Subscribe to Newsletter</span>
-              <Badge variant="secondary" className="ml-2 text-xs">WIP</Badge>
+              <span className="ml-2 truncate">Subscribe to Newsletter</span>
+              <Badge variant="secondary" className="ml-2 text-xs shrink-0">WIP</Badge>
             </Button>
           </div>
         </div>
