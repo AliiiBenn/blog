@@ -2,7 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Post } from '@/payload-types'
 import { format } from 'date-fns'
-import { Calendar, Clock } from 'lucide-react'
+import { Calendar, Clock, ChevronRight, FileText } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
 
 interface PostCardProps {
   post: Post
@@ -28,12 +29,18 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
   const imageAlt = imageData?.alt || title
 
   return (
-    <Link
-      href={`/blog/${slug}`}
-      className="group flex flex-col overflow-hidden rounded-lg border bg-card transition-all hover:shadow-lg"
-    >
-      <div className="relative aspect-video overflow-hidden bg-muted">
-        {imageUrl ? (
+    <div className="group flex flex-col overflow-hidden border border-border bg-background transition-all hover:border-muted-foreground/40">
+      {/* Terminal-style header */}
+      <div className="border-b border-border bg-muted/20 px-3 py-2 font-mono text-xs text-muted-foreground">
+        <div className="flex items-center gap-2">
+          <FileText className="h-3 w-3" />
+          <span>post_{slug.slice(0, 15)}...</span>
+        </div>
+      </div>
+
+      {/* Image */}
+      {imageUrl && (
+        <Link href={`/blog/${slug}`} className="relative aspect-video overflow-hidden bg-muted">
           <Image
             src={imageUrl}
             alt={imageAlt}
@@ -42,44 +49,47 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
             priority={priority}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-        ) : (
-          <div className="flex h-full items-center justify-center text-muted-foreground">
-            No image
-          </div>
-        )}
-      </div>
+        </Link>
+      )}
 
-      <div className="flex flex-1 flex-col p-4">
-        <div className="mb-3 flex items-center gap-2">
+      {/* Content */}
+      <div className="flex flex-1 flex-col border-b border-border p-4">
+        {/* Metadata row */}
+        <div className="mb-3 flex items-center gap-2 font-mono text-xs">
           {categoryData && (
             <Link
               href={`/category/${categoryData.slug}`}
-              className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
-              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center rounded-sm bg-muted/50 px-2 py-1 text-xs transition-colors hover:bg-muted"
             >
-              {categoryData.name}
+              <ChevronRight className="h-3 w-3" />
+              <span className="ml-1">{categoryData.name}</span>
             </Link>
           )}
-          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+          <div className="flex items-center gap-3 text-muted-foreground">
             <span className="flex items-center gap-1">
               <Clock className="h-3 w-3" />
-              {readingTime} min read
+              {readingTime}m
             </span>
           </div>
         </div>
 
-        <h3 className="mb-2 text-xl font-semibold line-clamp-2 group-hover:text-primary transition-colors">
-          {title}
-        </h3>
+        {/* Title */}
+        <Link href={`/blog/${slug}`} className="mb-2">
+          <h3 className="font-mono text-lg font-semibold line-clamp-2 group-hover:text-foreground transition-colors text-foreground">
+            {'>'} {title}
+          </h3>
+        </Link>
 
+        {/* Excerpt */}
         {excerpt && (
-          <p className="mb-4 flex-1 text-sm text-muted-foreground line-clamp-3">
+          <p className="mb-4 flex-1 font-mono text-sm text-muted-foreground line-clamp-3">
             {excerpt}
           </p>
         )}
 
+        {/* Footer */}
         <div className="mt-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
             {publishedDate && (
               <span className="flex items-center gap-1">
                 <Calendar className="h-3 w-3" />
@@ -95,18 +105,27 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
                 if (!tagData) return null
 
                 return (
-                  <span
+                  <Badge
                     key={tagData.id}
-                    className="inline-flex items-center rounded-full bg-secondary px-2 py-0.5 text-xs text-secondary-foreground"
+                    variant="outline"
+                    className="font-mono text-[10px] border-border"
                   >
                     {tagData.name}
-                  </span>
+                  </Badge>
                 )
               })}
             </div>
           )}
         </div>
       </div>
-    </Link>
+
+      {/* Terminal-style footer */}
+      <div className="bg-muted/20 px-3 py-2 font-mono text-xs text-muted-foreground">
+        <div className="flex items-center justify-between">
+          <span>./read_more.sh</span>
+          <ChevronRight className="h-3 w-3" />
+        </div>
+      </div>
+    </div>
   )
 }

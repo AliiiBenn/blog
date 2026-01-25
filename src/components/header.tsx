@@ -16,7 +16,6 @@ export function Header() {
           <div className="relative size-8">
             <Image src="/icon.svg" alt="Blog" fill className="object-contain" />
           </div>
-          <span className="text-xl font-bold">Blog</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">

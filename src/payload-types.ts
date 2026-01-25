@@ -152,7 +152,10 @@ export interface Admin {
  */
 export interface Media {
   id: number;
-  alt: string;
+  /**
+   * Alternative text for accessibility
+   */
+  alt?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -207,7 +210,7 @@ export interface Post {
   /**
    * Main image for post cards and listings
    */
-  featuredImage: number | Media;
+  featuredImage?: (number | null) | Media;
   /**
    * Optional hero image for the post page
    */
