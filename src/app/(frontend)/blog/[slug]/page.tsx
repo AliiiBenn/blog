@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Kbd } from '@/components/ui/kbd'
 import { RichText } from '@/components/richtext'
-import { ArrowRight, Calendar, Clock, ChevronRight, FileText, Share2 } from 'lucide-react'
+import { ArrowRight, Calendar, Clock, ChevronRight, FileText } from 'lucide-react'
 import { format } from 'date-fns'
 
 interface PostPageProps {
@@ -152,15 +152,10 @@ export default async function PostPage({ params }: PostPageProps) {
                 })}
               </div>
             )}
-
-            {/* Share Button */}
-            <div className="flex items-center gap-4">
-              <Button variant="outline" size="sm" className="font-mono gap-2">
-                <Share2 className="h-4 w-4" />
-                <span>Share</span>
-              </Button>
-            </div>
           </header>
+
+          {/* Separator */}
+          <div className="border-b border-border mb-12" />
 
           {/* Cover Image */}
           {imageUrl && (
