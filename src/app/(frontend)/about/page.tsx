@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Terminal, ChevronRight, Mail, MapPin } from 'lucide-react'
+import { Terminal, ChevronRight, Mail, MapPin, FileText } from 'lucide-react'
+import { Kbd } from '@/components/ui/kbd'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -12,28 +13,23 @@ export default function AboutPage() {
     <div className="bg-background">
       {/* Header Section */}
       <section className="bg-background">
-        <div className="mx-auto max-w-5xl border-x border-border px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl border-x border-border">
           {/* Terminal Prompt */}
-          <div className="mb-6 font-mono text-sm">
+          <div className="px-4 sm:px-6 lg:px-8 py-4 font-mono text-sm">
             <div className="flex items-center gap-2 text-muted-foreground">
-              <span className="text-muted-foreground">$</span>
+              <Kbd className="bg-muted">$</Kbd>
               <span>cd ~/about</span>
             </div>
           </div>
 
           {/* Section Header */}
-          <div className="mb-4 flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
-            <Terminal className="h-4 w-4 text-muted-foreground" />
-            <div className="flex-1 font-mono text-xs text-muted-foreground">
-              ~/about/me.md
+          <div>
+            <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
+              <FileText className="h-4 w-4 text-muted-foreground" />
+              <div className="flex-1 font-mono text-xs text-muted-foreground">
+                ~/about/
+              </div>
             </div>
-          </div>
-
-          <div className="mt-4">
-            <h1 className="mb-4 font-mono text-4xl font-bold">
-              <span className="text-muted-foreground">{'>'}</span>
-              <span className="ml-2">cat profile.txt</span>
-            </h1>
           </div>
         </div>
       </section>
