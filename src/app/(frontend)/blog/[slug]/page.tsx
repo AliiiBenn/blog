@@ -63,13 +63,15 @@ export default async function PostPage({ params }: PostPageProps) {
     <div className="bg-background">
       {/* Header - Terminal Style */}
       <section className="bg-background">
-        <div className="mx-auto max-w-3xl border-x border-border">
-          {/* Section Header */}
-          <div>
-            <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
-              <FileText className="h-4 w-4 text-muted-foreground" />
-              <div className="flex-1 font-mono text-xs text-muted-foreground truncate">
-                ~/blog/{slug}
+        <div className="mx-auto max-w-5xl border-x border-border">
+          <div className="mx-auto max-w-3xl">
+            {/* Section Header */}
+            <div>
+              <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
+                <FileText className="h-4 w-4 text-muted-foreground" />
+                <div className="flex-1 font-mono text-xs text-muted-foreground truncate">
+                  ~/blog/{slug}
+                </div>
               </div>
             </div>
           </div>
@@ -78,7 +80,8 @@ export default async function PostPage({ params }: PostPageProps) {
 
       {/* Main Content */}
       <section className="bg-background">
-        <div className="mx-auto max-w-3xl border-x border-t border-b border-border px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl border-x border-t border-b border-border">
+          <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
           {/* Back Button */}
           <div className="mb-8">
             <Link
@@ -236,6 +239,7 @@ export default async function PostPage({ params }: PostPageProps) {
               ))}
             </div>
           </section>
+          </div>
         </div>
       </section>
     </div>
