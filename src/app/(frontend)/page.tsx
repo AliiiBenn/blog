@@ -53,19 +53,19 @@ export default async function HomePage() {
                     <Badge variant="outline" className="font-mono">v1.0.0</Badge>
                     <span className="ml-2">{`// WELCOME_MESSAGE`}</span>
                   </div>
-                  <h1 className="font-mono text-4xl font-bold tracking-tight sm:text-5xl">
+                  <h1 className="font-mono text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                     <span className="text-muted-foreground">{'>'}</span>
-                    <span className="ml-2 text-foreground">David_Pereira</span>
+                    <span className="ml-2 text-foreground break-words">David_Pereira</span>
                     <span className="animate-pulse">_</span>
                   </h1>
                 </div>
 
-                <p className="mb-2 font-mono text-sm text-muted-foreground">
+                <p className="mb-2 font-mono text-sm text-muted-foreground break-words">
                   <span>const</span>
                   <span className="text-foreground"> mission = </span>
                   <span className="text-foreground">&quot;Creating a generation of exceptional developers&quot;</span>
                 </p>
-                <p className="mb-6 font-mono text-sm text-muted-foreground">
+                <p className="mb-6 font-mono text-sm text-muted-foreground break-words">
                   <span>through</span>
                   <span className="text-foreground"> Developers Secrets &amp; Nesalia Inc</span>
                   <span className="text-foreground">;</span>
@@ -90,25 +90,25 @@ export default async function HomePage() {
                   </p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
-                  <Button size="lg" className="font-mono" asChild>
+                <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 lg:justify-start">
+                  <Button size="default" className="font-mono w-full sm:w-auto" asChild>
                     <Link href="/blog">
                       <Terminal className="mr-2 h-4 w-4" />
                       ./browse_articles.sh
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline" className="font-mono" asChild>
+                  <Button size="default" variant="outline" className="font-mono w-full sm:w-auto" asChild>
                     <Link href="/about">
                       ./about_me.sh
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                     </Link>
                   </Button>
                 </div>
               </div>
 
               {/* Terminal-style profile */}
-              <div className="flex-shrink-0 lg:ml-8">
+              <div className="flex-shrink-0 w-full max-w-[300px] lg:ml-8 lg:max-w-none">
                 <div className="relative overflow-hidden border-2 border-border bg-background">
                   <div className="border-b border-border bg-muted/50 px-3 py-2 font-mono text-xs text-muted-foreground">
                     <div className="flex items-center gap-2">
@@ -117,30 +117,30 @@ export default async function HomePage() {
                     </div>
                   </div>
                   <div className="px-4 py-4">
-                    <div className="relative mx-auto size-48 overflow-hidden rounded-full border-2 border-border lg:size-56">
+                    <div className="relative mx-auto aspect-square w-full max-w-[200px] overflow-hidden rounded-full border-2 border-border sm:max-w-[220px] lg:size-56">
                       <Image
                         src="/me.png"
                         alt="David Pereira"
                         fill
                         className="object-cover"
                         priority
-                        sizes="256px"
+                        sizes="(max-width: 640px) 200px, (max-width: 1024px) 220px, 256px"
                       />
                     </div>
                     <div className="mt-4 font-mono text-xs">
                       <div className="flex items-center gap-2 text-muted-foreground">
-                        <ChevronRight className="h-3 w-3" />
-                        <span>name:</span>
-                        <span className="text-foreground">&quot;David Pereira&quot;</span>
+                        <ChevronRight className="h-3 w-3 shrink-0" />
+                        <span className="shrink-0">name:</span>
+                        <span className="text-foreground break-words">&quot;David Pereira&quot;</span>
                       </div>
                       <div className="mt-1 flex items-center gap-2 text-muted-foreground">
-                        <ChevronRight className="h-3 w-3" />
-                        <span>role:</span>
-                        <span className="text-foreground">&quot;Full-Stack Developer&quot;</span>
+                        <ChevronRight className="h-3 w-3 shrink-0" />
+                        <span className="shrink-0">role:</span>
+                        <span className="text-foreground break-words">&quot;Full-Stack Developer&quot;</span>
                       </div>
                       <div className="mt-1 flex items-center gap-2 text-muted-foreground">
-                        <ChevronRight className="h-3 w-3" />
-                        <span>status:</span>
+                        <ChevronRight className="h-3 w-3 shrink-0" />
+                        <span className="shrink-0">status:</span>
                         <Badge variant="secondary" className="text-[10px]">ONLINE</Badge>
                       </div>
                     </div>

@@ -69,36 +69,36 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           {/* Category Header */}
           <header className="mb-8">
             <div className="mb-4 flex items-center gap-3 border-b border-border pb-4">
-              <FolderOpen className="h-5 w-5 text-muted-foreground" />
-              <div className="flex-1 font-mono text-sm text-muted-foreground">
+              <FolderOpen className="h-5 w-5 text-muted-foreground shrink-0" />
+              <div className="flex-1 font-mono text-sm text-muted-foreground truncate">
                 ~/categories/{slug}/
               </div>
-              <Badge variant="outline" className="font-mono text-xs">
+              <Badge variant="outline" className="font-mono text-xs shrink-0">
                 {posts.length} posts
               </Badge>
             </div>
 
-            <div className="flex items-start gap-6">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
               {iconData?.url && (
-                <div className="relative size-24 flex-shrink-0 overflow-hidden rounded-full border-2 border-border bg-background">
+                <div className="relative size-20 sm:size-24 flex-shrink-0 overflow-hidden rounded-full border-2 border-border bg-background mx-auto sm:mx-0">
                   <Image
                     src={iconData.url}
                     alt={iconData.alt || category.name}
                     fill
                     className="object-cover"
-                    sizes="96px"
+                    sizes="(max-width: 640px) 80px, 96px"
                   />
                 </div>
               )}
 
-              <div className="flex-1">
-                <h1 className="mb-4 font-mono text-4xl font-bold sm:text-5xl">
+              <div className="flex-1 text-center sm:text-left">
+                <h1 className="mb-4 font-mono text-3xl font-bold sm:text-4xl lg:text-5xl">
                   <span className="text-muted-foreground">{'>'}</span>
-                  <span className="ml-2 text-foreground">{category.name}</span>
+                  <span className="ml-2 text-foreground break-words">{category.name}</span>
                 </h1>
 
                 {category.description && (
-                  <p className="mb-4 max-w-2xl font-mono text-sm text-muted-foreground">
+                  <p className="mb-4 max-w-2xl font-mono text-sm text-muted-foreground mx-auto sm:mx-0">
                     {/* {category.description} */}
                   </p>
                 )}
@@ -111,13 +111,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             </div>
 
             {imageData?.url && (
-              <div className="relative mt-8 aspect-[2.5/1] overflow-hidden rounded-lg border-2 border-border bg-background">
+              <div className="relative mt-8 aspect-[2/1] sm:aspect-[2.5/1] overflow-hidden rounded-lg border-2 border-border bg-background">
                 <Image
                   src={imageData.url}
                   alt={imageData.alt || category.name}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 1200px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
                 />
               </div>
             )}

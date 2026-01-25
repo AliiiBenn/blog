@@ -33,8 +33,8 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
       {/* Terminal-style header */}
       <div className="border-b border-border bg-muted/20 px-3 py-2 font-mono text-xs text-muted-foreground">
         <div className="flex items-center gap-2">
-          <FileText className="h-3 w-3" />
-          <span>post_{slug.slice(0, 15)}...</span>
+          <FileText className="h-3 w-3 shrink-0" />
+          <span className="truncate">post_{slug.slice(0, 15)}...</span>
         </div>
       </div>
 
@@ -47,22 +47,22 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             priority={priority}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         </Link>
       )}
 
       {/* Content */}
-      <div className="flex flex-1 flex-col border-b border-border p-4">
+      <div className="flex flex-1 flex-col border-b border-border p-3 sm:p-4">
         {/* Metadata row */}
-        <div className="mb-3 flex items-center gap-2 font-mono text-xs">
+        <div className="mb-3 flex items-center flex-wrap gap-2 font-mono text-xs">
           {categoryData && (
             <Link
               href={`/category/${categoryData.slug}`}
               className="inline-flex items-center rounded-sm bg-muted/50 px-2 py-1 text-xs transition-colors hover:bg-muted"
             >
               <ChevronRight className="h-3 w-3" />
-              <span className="ml-1">{categoryData.name}</span>
+              <span className="ml-1 truncate max-w-[150px]">{categoryData.name}</span>
             </Link>
           )}
           <div className="flex items-center gap-3 text-muted-foreground">
@@ -75,31 +75,31 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
 
         {/* Title */}
         <Link href={`/blog/${slug}`} className="mb-2">
-          <h3 className="font-mono text-lg font-semibold line-clamp-2 group-hover:text-foreground transition-colors text-foreground">
-            {'>'} {title}
+          <h3 className="font-mono text-base sm:text-lg font-semibold line-clamp-2 group-hover:text-foreground transition-colors text-foreground">
+            {'>'} <span className="break-words">{title}</span>
           </h3>
         </Link>
 
         {/* Excerpt */}
         {excerpt && (
-          <p className="mb-4 flex-1 font-mono text-sm text-muted-foreground line-clamp-3">
+          <p className="mb-4 flex-1 font-mono text-xs sm:text-sm text-muted-foreground line-clamp-3">
             {excerpt}
           </p>
         )}
 
         {/* Footer */}
-        <div className="mt-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
+        <div className="mt-auto flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground truncate">
             {publishedDate && (
               <span className="flex items-center gap-1">
-                <Calendar className="h-3 w-3" />
-                {format(new Date(publishedDate), 'MMM d, yyyy')}
+                <Calendar className="h-3 w-3 shrink-0" />
+                <span className="truncate">{format(new Date(publishedDate), 'MMM d, yyyy')}</span>
               </span>
             )}
           </div>
 
           {tagsData.length > 0 && (
-            <div className="flex gap-1">
+            <div className="flex gap-1 flex-wrap">
               {tagsData.map((tag) => {
                 const tagData = typeof tag === 'object' && tag !== null ? tag : null
                 if (!tagData) return null
@@ -122,8 +122,8 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
       {/* Terminal-style footer */}
       <div className="bg-muted/20 px-3 py-2 font-mono text-xs text-muted-foreground">
         <div className="flex items-center justify-between">
-          <span>./read_more.sh</span>
-          <ChevronRight className="h-3 w-3" />
+          <span className="truncate">./read_more.sh</span>
+          <ChevronRight className="h-3 w-3 shrink-0" />
         </div>
       </div>
     </div>

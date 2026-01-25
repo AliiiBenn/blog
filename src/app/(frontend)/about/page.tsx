@@ -29,7 +29,7 @@ export default function AboutPage() {
       {/* Content Section */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl border-x border-b border-border px-4 py-12 sm:px-6 lg:px-8 min-h-[calc(100vh-14rem)]">
-          <div className="grid gap-12 md:grid-cols-3">
+          <div className="grid gap-8 md:gap-12 md:grid-cols-3">
             {/* Profile Card */}
             <div className="md:col-span-1">
               <div className="border-2 border-border bg-background">
@@ -42,37 +42,37 @@ export default function AboutPage() {
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6">
-                  <div className="relative mx-auto mb-4 size-48 overflow-hidden rounded-full border-2 border-border">
+                <div className="p-4 sm:p-6">
+                  <div className="relative mx-auto mb-4 aspect-square w-full max-w-[192px] overflow-hidden rounded-full border-2 border-border">
                     <Image
                       src="/me.png"
                       alt="Profile"
                       fill
                       className="object-cover"
-                      sizes="192px"
+                      sizes="(max-width: 640px) 192px, 192px"
                     />
                   </div>
 
                   <div className="space-y-3 font-mono text-xs">
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <ChevronRight className="h-3 w-3" />
-                      <span>name:</span>
-                      <span className="text-foreground">&quot;David Pereira&quot;</span>
+                      <ChevronRight className="h-3 w-3 shrink-0" />
+                      <span className="shrink-0">name:</span>
+                      <span className="text-foreground break-words">&quot;David Pereira&quot;</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <ChevronRight className="h-3 w-3" />
-                      <span>role:</span>
-                      <span className="text-foreground">&quot;Full-Stack Developer &amp; Entrepreneur&quot;</span>
+                      <ChevronRight className="h-3 w-3 shrink-0" />
+                      <span className="shrink-0">role:</span>
+                      <span className="text-foreground break-words">&quot;Full-Stack Developer &amp; Entrepreneur&quot;</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <ChevronRight className="h-3 w-3" />
-                      <span>location:</span>
-                      <span className="text-foreground">&quot;France&quot;</span>
+                      <ChevronRight className="h-3 w-3 shrink-0" />
+                      <span className="shrink-0">location:</span>
+                      <span className="text-foreground break-words">&quot;France&quot;</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <ChevronRight className="h-3 w-3" />
-                      <span>status:</span>
-                      <span className="text-green-500">&quot;Building the future&quot;</span>
+                      <ChevronRight className="h-3 w-3 shrink-0" />
+                      <span className="shrink-0">status:</span>
+                      <span className="text-green-500 break-words">&quot;Building the future&quot;</span>
                     </div>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ export default function AboutPage() {
               {/* Bio Section */}
               <div>
                 <div className="prose prose-sm max-w-none dark:prose-invert">
-                  <p className="font-mono text-sm text-muted-foreground">
+                  <p className="font-mono text-sm text-muted-foreground break-words">
                     Hi, I&apos;m David Pereira, a full-stack developer passionate about Python, Next.js, React, and TypeScript.
                     I&apos;m the creator of Developers Secrets, a computer science learning platform, and Nesalia Inc, a software development toolkit company.
                     My mission is to create a generation of exceptional developers.
@@ -97,12 +97,12 @@ export default function AboutPage() {
               <div>
                 <div className="space-y-4">
                   {/* Developers Secrets */}
-                  <div className="border border-border bg-muted/20 p-4">
+                  <div className="border border-border bg-muted/20 p-3 sm:p-4">
                     <div className="mb-2 font-mono text-sm font-semibold">
                       <span className="text-muted-foreground">{'>'}</span>
-                      <span className="ml-2">Developers Secrets</span>
+                      <span className="ml-2 break-words">Developers Secrets</span>
                     </div>
-                    <p className="mb-3 font-mono text-xs text-muted-foreground">
+                    <p className="mb-3 font-mono text-xs text-muted-foreground break-words">
                       A computer science learning platform for creating exceptional developers
                     </p>
                     <a
@@ -111,18 +111,18 @@ export default function AboutPage() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-foreground"
                     >
-                      <span>github.com/Developers-Secrets-Inc</span>
-                      <ChevronRight className="h-3 w-3" />
+                      <span className="break-all">github.com/Developers-Secrets-Inc</span>
+                      <ChevronRight className="h-3 w-3 shrink-0" />
                     </a>
                   </div>
 
                   {/* Nesalia Inc */}
-                  <div className="border border-border bg-muted/20 p-4">
+                  <div className="border border-border bg-muted/20 p-3 sm:p-4">
                     <div className="mb-2 font-mono text-sm font-semibold">
                       <span className="text-muted-foreground">{'>'}</span>
-                      <span className="ml-2">Nesalia Inc</span>
+                      <span className="ml-2 break-words">Nesalia Inc</span>
                     </div>
-                    <p className="mb-3 font-mono text-xs text-muted-foreground">
+                    <p className="mb-3 font-mono text-xs text-muted-foreground break-words">
                       Software development toolkit company for modern developers
                     </p>
                     <a
@@ -131,8 +131,8 @@ export default function AboutPage() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-foreground"
                     >
-                      <span>github.com/nesalia-inc</span>
-                      <ChevronRight className="h-3 w-3" />
+                      <span className="break-all">github.com/nesalia-inc</span>
+                      <ChevronRight className="h-3 w-3 shrink-0" />
                     </a>
                   </div>
                 </div>

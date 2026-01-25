@@ -59,7 +59,7 @@ export default async function BlogPage(
 
           {posts.length === 12 && (
             <div className="mt-8 flex justify-center">
-              <Button variant="outline" size="lg" className="font-mono">
+              <Button variant="outline" size="default" className="font-mono w-full sm:w-auto">
                 ./load_more.sh
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
