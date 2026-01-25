@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
-import { getPostBySlug, getRelatedPosts, getRecentPosts } from '@/app/actions/posts'
+import { getPostBySlug, getRelatedPosts } from '@/app/actions/posts'
 import { PostGrid } from '@/components/posts/post-grid'
 import { Badge } from '@/components/ui/badge'
 import { RichText } from '@/components/richtext'
@@ -47,7 +47,6 @@ export default async function PostPage({ params }: PostPageProps) {
   const categoryData = typeof post.category === 'object' && post.category !== null ? post.category : null
   const tagsData = Array.isArray(post.tags) ? post.tags : []
   const relatedPosts = await getRelatedPosts(String(post.id), categoryData?.slug || '', 3)
-  const recentPosts = await getRecentPosts(3)
 
   const coverImageData =
     typeof post.coverImage === 'object' && post.coverImage !== null ? post.coverImage : null
@@ -184,19 +183,6 @@ export default async function PostPage({ params }: PostPageProps) {
               <PostGrid posts={relatedPosts} />
             </section>
           )}
-
-          {/* Recent Posts */}
-          <section className="border-t border-border">
-            <div>
-              <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
-                <FileText className="h-4 w-4 text-muted-foreground" />
-                <div className="flex-1 font-mono text-xs text-muted-foreground">
-                  ./recent_posts.sh
-                </div>
-              </div>
-            </div>
-            <PostGrid posts={recentPosts} />
-          </section>
         </div>
       </section>
     </div>
