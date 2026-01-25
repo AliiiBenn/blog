@@ -93,6 +93,51 @@ export default function AboutPage() {
                 </div>
               </div>
 
+              {/* Organizations Section */}
+              <div>
+                <div className="space-y-4">
+                  {/* Developers Secrets */}
+                  <div className="border border-border bg-muted/20 p-4">
+                    <div className="mb-2 font-mono text-sm font-semibold">
+                      <span className="text-muted-foreground">{'>'}</span>
+                      <span className="ml-2">Developers Secrets</span>
+                    </div>
+                    <p className="mb-3 font-mono text-xs text-muted-foreground">
+                      A computer science learning platform for creating exceptional developers
+                    </p>
+                    <a
+                      href="https://github.com/Developers-Secrets-Inc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-foreground"
+                    >
+                      <span>github.com/Developers-Secrets-Inc</span>
+                      <ChevronRight className="h-3 w-3" />
+                    </a>
+                  </div>
+
+                  {/* Nesalia Inc */}
+                  <div className="border border-border bg-muted/20 p-4">
+                    <div className="mb-2 font-mono text-sm font-semibold">
+                      <span className="text-muted-foreground">{'>'}</span>
+                      <span className="ml-2">Nesalia Inc</span>
+                    </div>
+                    <p className="mb-3 font-mono text-xs text-muted-foreground">
+                      Software development toolkit company for modern developers
+                    </p>
+                    <a
+                      href="https://github.com/nesalia-inc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-foreground"
+                    >
+                      <span>github.com/nesalia-inc</span>
+                      <ChevronRight className="h-3 w-3" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               {/* Contact Section */}
               <div>
                 <div className="space-y-2 font-mono text-sm">
