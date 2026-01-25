@@ -1,6 +1,6 @@
 import type { Post } from '@/payload-types'
 import { PostCard } from './post-card'
-import { FileX, Terminal } from 'lucide-react'
+import { FileX } from 'lucide-react'
 
 interface PostGridProps {
   posts: Post[]

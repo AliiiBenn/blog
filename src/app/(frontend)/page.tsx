@@ -51,7 +51,7 @@ export default async function HomePage() {
                 <div className="mb-6">
                   <div className="mb-4 font-mono text-xs text-muted-foreground">
                     <Badge variant="outline" className="font-mono">v1.0.0</Badge>
-                    <span className="ml-2">// WELCOME_MESSAGE</span>
+                    <span className="ml-2">{`// WELCOME_MESSAGE`}</span>
                   </div>
                   <h1 className="font-mono text-4xl font-bold tracking-tight sm:text-5xl">
                     <span className="text-muted-foreground">{'>'}</span>
@@ -63,7 +63,7 @@ export default async function HomePage() {
                 <p className="mb-2 font-mono text-sm text-muted-foreground">
                   <span>const</span>
                   <span className="text-foreground"> description = </span>
-                  <span className="text-foreground">"Exploring the intersection of technology, design, and human experience"</span>
+                  <span className="text-foreground">&quot;Exploring the intersection of technology, design, and human experience&quot;</span>
                 </p>
                 <p className="mb-8 font-mono text-sm text-muted-foreground">
                   <span>through</span>
@@ -107,7 +107,7 @@ export default async function HomePage() {
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <ChevronRight className="h-3 w-3" />
                         <span>role:</span>
-                        <span className="text-foreground">"Developer"</span>
+                        <span className="text-foreground">&quot;Developer&quot;</span>
                       </div>
                       <div className="mt-1 flex items-center gap-2 text-muted-foreground">
                         <ChevronRight className="h-3 w-3" />
@@ -156,7 +156,7 @@ export default async function HomePage() {
               <span className="ml-2 text-foreground">Stay Updated</span>
             </h2>
             <p className="mb-6 font-mono text-sm text-muted-foreground">
-              /* Get the latest articles delivered straight to your inbox */
+              {/* Get the latest articles delivered straight to your inbox */}
             </p>
             <Button size="lg" disabled className="font-mono">
               <span className="text-muted-foreground">[ ]</span>

@@ -1,10 +1,7 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import { getPosts } from '@/app/actions/posts'
 import { PostGrid } from '@/components/posts/post-grid'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { Kbd } from '@/components/ui/kbd'
 import { ArrowRight, FileText } from 'lucide-react'
 

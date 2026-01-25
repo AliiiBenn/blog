@@ -55,7 +55,7 @@ export const CategoryCard = ({ category, postCount = 0 }: CategoryCardProps) => 
         {/* Description */}
         {description && (
           <p className="mb-4 flex-1 text-center font-mono text-sm text-muted-foreground line-clamp-2">
-            /* {description} */
+            {/* {description} */}
           </p>
         )}
 

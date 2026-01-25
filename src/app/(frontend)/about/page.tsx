@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Terminal, ChevronRight, Mail, MapPin, Calendar } from 'lucide-react'
+import { Terminal, ChevronRight, Mail, MapPin } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -69,22 +69,22 @@ export default function AboutPage() {
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <ChevronRight className="h-3 w-3" />
                       <span>name:</span>
-                      <span className="text-foreground">"Your Name"</span>
+                      <span className="text-foreground">&quot;Your Name&quot;</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <ChevronRight className="h-3 w-3" />
                       <span>role:</span>
-                      <span className="text-foreground">"Developer"</span>
+                      <span className="text-foreground">&quot;Developer&quot;</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <ChevronRight className="h-3 w-3" />
                       <span>location:</span>
-                      <span className="text-foreground">"World"</span>
+                      <span className="text-foreground">&quot;World&quot;</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <ChevronRight className="h-3 w-3" />
                       <span>status:</span>
-                      <span className="text-green-500">"Available"</span>
+                      <span className="text-green-500">&quot;Available&quot;</span>
                     </div>
                   </div>
                 </div>

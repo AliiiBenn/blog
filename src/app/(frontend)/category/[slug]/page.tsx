@@ -8,7 +8,7 @@ import { PostGrid } from '@/components/posts/post-grid'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Kbd } from '@/components/ui/kbd'
-import { ArrowLeft, ArrowRight, FolderOpen, FileText, ChevronRight } from 'lucide-react'
+import { ArrowRight, FolderOpen, FileText, ChevronRight } from 'lucide-react'
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>
@@ -99,7 +99,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
                 {category.description && (
                   <p className="mb-4 max-w-2xl font-mono text-sm text-muted-foreground">
-                    /* {category.description} */
+                    {/* {category.description} */}
                   </p>
                 )}
 
