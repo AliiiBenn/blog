@@ -10,7 +10,7 @@ import { ArrowRight, Terminal, ChevronRight, FileText } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Home',
-  description: 'A modern blog built with Payload CMS and Next.js',
+  description: 'Blog of David Pereira - Python, Next.js, React, TypeScript developer and creator of Developers Secrets and Nesalia Inc',
 }
 
 export default async function HomePage() {
@@ -37,7 +37,7 @@ export default async function HomePage() {
           <div className="px-4 sm:px-6 lg:px-8 py-6 font-mono text-sm">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Kbd className="bg-muted">$</Kbd>
-              <span>user@blog</span>
+              <span>david@blog</span>
               <span className="text-foreground">:</span>
               <span className="text-foreground">~</span>
               <span className="text-foreground">./welcome.sh</span>
@@ -55,20 +55,19 @@ export default async function HomePage() {
                   </div>
                   <h1 className="font-mono text-4xl font-bold tracking-tight sm:text-5xl">
                     <span className="text-muted-foreground">{'>'}</span>
-                    <span className="ml-2 text-foreground">Hello_World</span>
+                    <span className="ml-2 text-foreground">David_Pereira</span>
                     <span className="animate-pulse">_</span>
                   </h1>
                 </div>
 
                 <p className="mb-2 font-mono text-sm text-muted-foreground">
                   <span>const</span>
-                  <span className="text-foreground"> description = </span>
-                  <span className="text-foreground">&quot;Exploring the intersection of technology, design, and human experience&quot;</span>
+                  <span className="text-foreground"> mission = </span>
+                  <span className="text-foreground">&quot;Creating a generation of exceptional developers&quot;</span>
                 </p>
                 <p className="mb-8 font-mono text-sm text-muted-foreground">
                   <span>through</span>
-                  <span className="text-foreground"> in-depth</span>
-                  <span className="text-foreground">[articles]</span>
+                  <span className="text-foreground"> Developers Secrets &amp; Nesalia Inc</span>
                   <span className="text-foreground">;</span>
                 </p>
 
@@ -96,7 +95,7 @@ export default async function HomePage() {
                     <div className="relative mx-auto size-48 overflow-hidden rounded-full border-2 border-border lg:size-56">
                       <Image
                         src="/me.png"
-                        alt="Author"
+                        alt="David Pereira"
                         fill
                         className="object-cover"
                         priority
@@ -106,8 +105,13 @@ export default async function HomePage() {
                     <div className="mt-4 font-mono text-xs">
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <ChevronRight className="h-3 w-3" />
+                        <span>name:</span>
+                        <span className="text-foreground">&quot;David Pereira&quot;</span>
+                      </div>
+                      <div className="mt-1 flex items-center gap-2 text-muted-foreground">
+                        <ChevronRight className="h-3 w-3" />
                         <span>role:</span>
-                        <span className="text-foreground">&quot;Developer&quot;</span>
+                        <span className="text-foreground">&quot;Full-Stack Developer&quot;</span>
                       </div>
                       <div className="mt-1 flex items-center gap-2 text-muted-foreground">
                         <ChevronRight className="h-3 w-3" />

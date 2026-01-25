@@ -4,7 +4,7 @@ import { Terminal, ChevronRight, Mail, MapPin } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Learn more about me and this blog',
+  description: 'About David Pereira - Python, Next.js, React, TypeScript developer and creator of Developers Secrets and Nesalia Inc',
 }
 
 export default function AboutPage() {
@@ -69,22 +69,22 @@ export default function AboutPage() {
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <ChevronRight className="h-3 w-3" />
                       <span>name:</span>
-                      <span className="text-foreground">&quot;Your Name&quot;</span>
+                      <span className="text-foreground">&quot;David Pereira&quot;</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <ChevronRight className="h-3 w-3" />
                       <span>role:</span>
-                      <span className="text-foreground">&quot;Developer&quot;</span>
+                      <span className="text-foreground">&quot;Full-Stack Developer &amp; Entrepreneur&quot;</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <ChevronRight className="h-3 w-3" />
                       <span>location:</span>
-                      <span className="text-foreground">&quot;World&quot;</span>
+                      <span className="text-foreground">&quot;France&quot;</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <ChevronRight className="h-3 w-3" />
                       <span>status:</span>
-                      <span className="text-green-500">&quot;Available&quot;</span>
+                      <span className="text-green-500">&quot;Building the future&quot;</span>
                     </div>
                   </div>
                 </div>
@@ -101,7 +101,9 @@ export default function AboutPage() {
                 </div>
                 <div className="prose prose-sm max-w-none dark:prose-invert">
                   <p className="font-mono text-sm text-muted-foreground">
-                    Hi, I&apos;m a developer passionate about web development, design, and creating great user experiences.
+                    Hi, I&apos;m David Pereira, a full-stack developer passionate about Python, Next.js, React, and TypeScript.
+                    I&apos;m the creator of Developers Secrets, a computer science learning platform, and Nesalia Inc, a software development toolkit company.
+                    My mission is to create a generation of exceptional developers.
                     This blog is where I share my thoughts, tutorials, and insights about technology.
                   </p>
                 </div>
@@ -116,9 +118,9 @@ export default function AboutPage() {
                 <div className="border border-border bg-muted/20 p-4 font-mono text-sm">
                   <pre className="text-muted-foreground">
 {`{
-  "frontend": ["React", "Next.js", "TypeScript"],
-  "backend": ["Node.js", "Payload CMS"],
-  "styling": ["Tailwind CSS", "shadcn/ui"],
+  "languages": ["Python", "TypeScript", "JavaScript"],
+  "frontend": ["React", "Next.js"],
+  "backend": ["Node.js", "Python"],
   "tools": ["Git", "VS Code", "Terminal"]
 }`}
                   </pre>
@@ -134,13 +136,25 @@ export default function AboutPage() {
                 <div className="space-y-2 font-mono text-sm">
                   <div className="flex items-center gap-3 text-muted-foreground">
                     <Mail className="h-4 w-4" />
-                    <a href="mailto:hello@example.com" className="hover:text-foreground">
-                      hello@example.com
+                    <a href="mailto:davidddpereiraaa6@gmail.com" className="hover:text-foreground">
+                      davidddpereiraaa6@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center gap-3 text-muted-foreground">
                     <MapPin className="h-4 w-4" />
-                    <span>Available for freelance projects</span>
+                    <span>France</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-muted-foreground">
+                    <MapPin className="h-4 w-4" />
+                    <a href="https://github.com/AliiiBenn" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
+                      github.com/AliiiBenn
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3 text-muted-foreground">
+                    <MapPin className="h-4 w-4" />
+                    <a href="https://www.linkedin.com/in/codewithdave/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
+                      linkedin.com/in/codewithdave
+                    </a>
                   </div>
                 </div>
               </div>

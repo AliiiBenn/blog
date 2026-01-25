@@ -13,7 +13,7 @@ export function Footer() {
               <span className="ml-2">About</span>
             </h3>
             <p className="text-sm text-muted-foreground">
-              A blog about web development, design, and technology
+              Blog of David Pereira, creator of Developers Secrets and Nesalia Inc
             </p>
           </div>
 
@@ -51,7 +51,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/AliiiBenn"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground"
@@ -61,12 +61,12 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://twitter.com"
+                  href="https://www.linkedin.com/in/codewithdave/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground"
                 >
-                  Twitter
+                  LinkedIn
                 </a>
               </li>
             </ul>
