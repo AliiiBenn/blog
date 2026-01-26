@@ -73,9 +73,9 @@ export default async function PostPage({ params }: PostPageProps) {
       </section>
 
       {/* Main Content */}
-      <section className="bg-background">
+      <section className="bg-background py-12">
         <div className="mx-auto max-w-5xl border-x border-t border-b border-border">
-          <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           {/* Post Header */}
           <header className="mb-8">
             {/* Metadata */}
