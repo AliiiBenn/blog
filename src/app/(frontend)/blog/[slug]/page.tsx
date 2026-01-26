@@ -7,7 +7,7 @@ import { PostGrid } from '@/components/posts/post-grid'
 import { Badge } from '@/components/ui/badge'
 import { RichText } from '@/components/richtext'
 import { CopyUrlButton } from '@/components/blog/copy-url-button'
-import { Calendar, Clock, ChevronRight, FileText } from 'lucide-react'
+import { ChevronRight, FileText } from 'lucide-react'
 import { format } from 'date-fns'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
@@ -92,26 +92,20 @@ export default async function PostPage({ params }: PostPageProps) {
               </div>
             )}
 
-            {/* Title with actions */}
-            <div className="relative mb-6">
-              {/* Copy URL button */}
-              <CopyUrlButton className="absolute -top-8 right-0" />
-
-              <h1 className="pr-20 text-3xl font-bold sm:text-4xl lg:text-5xl">
+            {/* Title */}
+            <div className="mb-6">
+              <h1 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
                 <span className="break-words">{post.title}</span>
               </h1>
 
-              {/* Bottom info - reading time left, date right */}
-              <div className="flex items-center justify-between text-xs font-mono text-muted-foreground mt-2">
-                <div className="flex items-center gap-1.5">
-                  <Clock className="h-3 w-3" />
-                  {post.readingTime && <span>{post.readingTime}m read</span>}
+              {/* Bottom info - reading time left, copy button, date right */}
+              <div className="flex items-center justify-between text-sm text-muted-foreground mt-2">
+                <div className="flex items-center gap-3">
+                  {post.readingTime && <span>{post.readingTime} min read</span>}
+                  <CopyUrlButton />
                 </div>
                 {post.publishedDate && (
-                  <div className="flex items-center gap-1.5">
-                    <Calendar className="h-3 w-3" />
-                    {format(new Date(post.publishedDate), 'MMM d, yyyy')}
-                  </div>
+                  <span>{format(new Date(post.publishedDate), 'MMM d, yyyy')}</span>
                 )}
               </div>
             </div>
