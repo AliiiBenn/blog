@@ -7,7 +7,7 @@ import { PostGrid } from '@/components/posts/post-grid'
 import { Badge } from '@/components/ui/badge'
 import { RichText } from '@/components/richtext'
 import { CopyUrlButton } from '@/components/blog/copy-url-button'
-import { ChevronRight, FileText } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import { format } from 'date-fns'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
@@ -68,13 +68,6 @@ export default async function PostPage({ params }: PostPageProps) {
             <div className="relative w-6 h-6 opacity-50">
               <div className="absolute top-1/2 left-0 right-0 h-px bg-white -translate-y-1/2"></div>
               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white -translate-x-1/2"></div>
-            </div>
-          </div>
-          {/* Section Header */}
-          <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
-            <FileText className="h-4 w-4 text-muted-foreground" />
-            <div className="flex-1 font-mono text-xs text-muted-foreground truncate">
-              ~/blog/{slug}
             </div>
           </div>
         </div>
