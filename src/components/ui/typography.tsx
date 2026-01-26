@@ -14,7 +14,7 @@ export function TypographyH1({ className, ...props }: React.HTMLAttributes<HTMLH
 export function TypographyH2({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h2
-      className={cn('scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-10 mb-4', className)}
+      className={cn('scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0 mt-10 mb-4', className)}
       {...props}
     />
   )
