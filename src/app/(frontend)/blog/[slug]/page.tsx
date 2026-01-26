@@ -6,7 +6,7 @@ import { getPostBySlug, getRelatedPosts } from '@/app/actions/posts'
 import { PostGrid } from '@/components/posts/post-grid'
 import { Badge } from '@/components/ui/badge'
 import { RichText } from '@/components/richtext'
-import { Calendar, Clock, ChevronRight, FileText } from 'lucide-react'
+import { Calendar, Clock, ChevronRight, FileText, Copy } from 'lucide-react'
 import { format } from 'date-fns'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
@@ -78,35 +78,49 @@ export default async function PostPage({ params }: PostPageProps) {
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           {/* Post Header */}
           <header className="mb-8">
-            {/* Metadata */}
-            <div className="mb-6 flex flex-wrap items-center gap-3 font-mono text-xs">
-              {categoryData && (
+            {/* Category */}
+            {categoryData && (
+              <div className="mb-6">
                 <Link
                   href={`/category/${categoryData.slug}`}
-                  className="inline-flex items-center rounded-sm bg-muted/50 px-2 py-1 text-xs transition-colors hover:bg-muted"
+                  className="inline-flex items-center rounded-sm bg-muted/50 px-2 py-1 text-xs transition-colors hover:bg-muted font-mono"
                 >
                   <ChevronRight className="h-3 w-3" />
                   <span className="ml-1">{categoryData.name}</span>
                 </Link>
-              )}
-              {post.publishedDate && (
-                <span className="flex items-center gap-1.5 text-muted-foreground">
-                  <Calendar className="h-3 w-3" />
-                  {format(new Date(post.publishedDate), 'MMM d, yyyy')}
-                </span>
-              )}
-              {post.readingTime && (
-                <span className="flex items-center gap-1.5 text-muted-foreground">
-                  <Clock className="h-3 w-3" />
-                  {post.readingTime}m read
-                </span>
-              )}
-            </div>
+              </div>
+            )}
 
-            {/* Title */}
-            <h1 className="mb-6 text-2xl font-bold text-center sm:text-3xl lg:text-4xl">
-              <span className="break-words">{post.title}</span>
-            </h1>
+            {/* Title with actions */}
+            <div className="relative mb-6">
+              {/* Copy URL button */}
+              <button
+                onClick={() => navigator.clipboard.writeText(window.location.href)}
+                className="absolute -top-8 right-0 inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors font-mono"
+                title="Copy URL"
+              >
+                <Copy className="h-4 w-4" />
+                <span>Copy</span>
+              </button>
+
+              <h1 className="pr-20 text-3xl font-bold sm:text-4xl lg:text-5xl">
+                <span className="break-words">{post.title}</span>
+              </h1>
+
+              {/* Bottom info - reading time left, date right */}
+              <div className="flex items-center justify-between text-xs font-mono text-muted-foreground mt-2">
+                <div className="flex items-center gap-1.5">
+                  <Clock className="h-3 w-3" />
+                  {post.readingTime && <span>{post.readingTime}m read</span>}
+                </div>
+                {post.publishedDate && (
+                  <div className="flex items-center gap-1.5">
+                    <Calendar className="h-3 w-3" />
+                    {format(new Date(post.publishedDate), 'MMM d, yyyy')}
+                  </div>
+                )}
+              </div>
+            </div>
 
             {/* Excerpt */}
             {post.excerpt && (
