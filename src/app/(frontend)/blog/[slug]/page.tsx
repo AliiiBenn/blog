@@ -77,15 +77,19 @@ export default async function PostPage({ params }: PostPageProps) {
       <section className="bg-background">
         <div className="mx-auto max-w-5xl border-x border-t border-b border-border relative">
           {/* Top left corner decoration */}
-          <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none">
-            <div className="absolute top-3 left-0 w-3 h-px bg-border"></div>
-            <div className="absolute top-0 left-3 w-px h-3 bg-border"></div>
+          <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none flex items-center justify-center">
+            <div className="relative w-4 h-4">
+              <div className="absolute top-1.5 left-0 right-0 h-px bg-white"></div>
+              <div className="absolute left-1.5 top-0 bottom-0 w-px bg-white"></div>
+            </div>
           </div>
 
           {/* Bottom right corner decoration */}
-          <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none">
-            <div className="absolute bottom-0 right-3 w-px h-3 bg-border"></div>
-            <div className="absolute bottom-3 right-0 w-3 h-px bg-border"></div>
+          <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none flex items-center justify-center">
+            <div className="relative w-4 h-4">
+              <div className="absolute top-1.5 left-0 right-0 h-px bg-white"></div>
+              <div className="absolute left-1.5 top-0 bottom-0 w-px bg-white"></div>
+            </div>
           </div>
 
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
