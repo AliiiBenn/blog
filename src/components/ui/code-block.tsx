@@ -15,7 +15,7 @@ export function CodeBlock({ children, className, ...props }: CodeBlockProps) {
   return (
     <figure
       className={cn(
-        'my-6 rounded-md border-2 border-border bg-background overflow-hidden text-sm relative z-10',
+        'my-6 rounded-md border border-border bg-background overflow-hidden text-sm relative z-10',
         className,
       )}
       {...props}
