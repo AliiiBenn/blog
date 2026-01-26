@@ -77,7 +77,7 @@ export function TypographyOL({ className, ...props }: React.HTMLAttributes<HTMLO
 export function TypographyInlineCode({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
     <code
-      className={cn('relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold', className)}
+      className={cn('relative rounded-md border border-border bg-muted/50 px-[0.4rem] py-[0.2rem] font-mono text-sm font-semibold', className)}
       {...props}
     />
   )
