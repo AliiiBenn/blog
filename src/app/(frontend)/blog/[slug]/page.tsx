@@ -81,10 +81,10 @@ export default async function PostPage({ params }: PostPageProps) {
           <header className="mb-8">
             {/* Category */}
             {categoryData && (
-              <div className="mb-6">
+              <div className="mb-6 flex justify-center">
                 <Link
                   href={`/category/${categoryData.slug}`}
-                  className="inline-flex items-center rounded-sm bg-muted/50 px-2 py-1 text-xs transition-colors hover:bg-muted font-mono"
+                  className="inline-flex items-center rounded-sm border border-border px-2 py-1 text-xs transition-colors hover:bg-muted/50 font-mono"
                 >
                   <ChevronRight className="h-3 w-3" />
                   <span className="ml-1">{categoryData.name}</span>
