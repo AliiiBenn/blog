@@ -7,7 +7,7 @@ import { PostGrid } from '@/components/posts/post-grid'
 import { Badge } from '@/components/ui/badge'
 import { RichText } from '@/components/richtext'
 import { CopyUrlButton } from '@/components/blog/copy-url-button'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, FileText } from 'lucide-react'
 import { format } from 'date-fns'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
