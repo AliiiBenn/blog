@@ -75,7 +75,19 @@ export default async function PostPage({ params }: PostPageProps) {
 
       {/* Main Content */}
       <section className="bg-background">
-        <div className="mx-auto max-w-5xl border-x border-t border-b border-border">
+        <div className="mx-auto max-w-5xl border-x border-t border-b border-border relative">
+          {/* Top left corner decoration */}
+          <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none">
+            <div className="absolute top-3 left-0 w-3 h-px bg-border"></div>
+            <div className="absolute top-0 left-3 w-px h-3 bg-border"></div>
+          </div>
+
+          {/* Bottom right corner decoration */}
+          <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none">
+            <div className="absolute bottom-0 right-3 w-px h-3 bg-border"></div>
+            <div className="absolute bottom-3 right-0 w-3 h-px bg-border"></div>
+          </div>
+
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
           {/* Post Header */}
           <header className="mb-8">
