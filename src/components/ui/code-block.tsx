@@ -15,7 +15,7 @@ export function CodeBlock({ children, className, ...props }: CodeBlockProps) {
   return (
     <figure
       className={cn(
-        'my-6 rounded-md border border-border bg-background overflow-hidden text-sm relative z-10',
+        'my-6 rounded-sm border border-border bg-background overflow-hidden text-sm relative z-10',
         className,
       )}
       {...props}
@@ -72,14 +72,14 @@ export function CodeBlockCode({
   return (
     <>
       {(filename || language) && (
-        <div className="flex items-center justify-between px-3 py-2 bg-muted/80 border-b border-border/40 text-xs text-muted-foreground font-mono">
+        <div className="flex items-center justify-between px-3 py-2 bg-background border-b border-border text-xs text-muted-foreground font-mono">
           <div className="flex items-center gap-2 text-xs uppercase">
             <Terminal className="h-3.5 w-3.5" />
             <span>{filename || language}</span>
           </div>
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-1.5 text-xs font-medium transition-colors hover:bg-muted disabled:pointer-events-none disabled:opacity-50"
+            className="inline-flex items-center justify-center rounded-sm p-1.5 text-xs font-medium transition-colors hover:bg-muted disabled:pointer-events-none disabled:opacity-50"
             aria-label="Copy Text"
             onClick={handleCopy}
           >
