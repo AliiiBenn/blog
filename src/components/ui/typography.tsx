@@ -59,7 +59,7 @@ export function TypographyBlockquote({ className, ...props }: React.HTMLAttribut
 export function TypographyList({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) {
   return (
     <ul
-      className={cn('my-6 ml-6 list-disc space-y-2', className)}
+      className={cn('my-6 ml-6 list-disc space-y-2 text-[17px]', className)}
       {...props}
     />
   )
@@ -68,7 +68,7 @@ export function TypographyList({ className, ...props }: React.HTMLAttributes<HTM
 export function TypographyOL({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) {
   return (
     <ol
-      className={cn('my-6 ml-6 list-decimal space-y-2', className)}
+      className={cn('my-6 ml-6 list-decimal space-y-2 text-[17px]', className)}
       {...props}
     />
   )
