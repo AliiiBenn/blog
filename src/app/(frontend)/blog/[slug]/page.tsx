@@ -62,7 +62,14 @@ export default async function PostPage({ params }: PostPageProps) {
     <div className="bg-background py-24">
       {/* Header - Terminal Style */}
       <section className="bg-background">
-        <div className="mx-auto max-w-5xl border-x border-t border-border">
+        <div className="mx-auto max-w-5xl border-x border-t border-border relative">
+          {/* Top left corner decoration */}
+          <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+            <div className="relative w-6 h-6 opacity-50">
+              <div className="absolute top-1/2 left-0 right-0 h-px bg-white -translate-y-1/2"></div>
+              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white -translate-x-1/2"></div>
+            </div>
+          </div>
           {/* Section Header */}
           <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
             <FileText className="h-4 w-4 text-muted-foreground" />
@@ -76,17 +83,9 @@ export default async function PostPage({ params }: PostPageProps) {
       {/* Main Content */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl border-x border-t border-b border-border relative">
-          {/* Top left corner decoration */}
-          <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-            <div className="relative w-6 h-6">
-              <div className="absolute top-1/2 left-0 right-0 h-px bg-white -translate-y-1/2"></div>
-              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white -translate-x-1/2"></div>
-            </div>
-          </div>
-
           {/* Bottom right corner decoration */}
           <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 pointer-events-none">
-            <div className="relative w-6 h-6">
+            <div className="relative w-6 h-6 opacity-50">
               <div className="absolute top-1/2 left-0 right-0 h-px bg-white -translate-y-1/2"></div>
               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white -translate-x-1/2"></div>
             </div>
