@@ -93,13 +93,13 @@ export default async function PostPage({ params }: PostPageProps) {
             )}
 
             {/* Title */}
-            <div className="mb-6 max-w-2xl">
-              <h1 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
+            <div className="mb-6 max-w-2xl mx-auto">
+              <h1 className="text-3xl font-bold sm:text-4xl lg:text-5xl text-center">
                 <span className="break-words">{post.title}</span>
               </h1>
 
               {/* Bottom info - reading time left, copy button, date right */}
-              <div className="flex items-center justify-between text-sm text-muted-foreground mt-6">
+              <div className="flex items-center justify-between text-sm text-muted-foreground mt-10">
                 <div className="flex items-center gap-3">
                   {post.readingTime && <span>{post.readingTime} min read</span>}
                   <CopyUrlButton />
