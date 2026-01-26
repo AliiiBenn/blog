@@ -104,9 +104,8 @@ export default async function PostPage({ params }: PostPageProps) {
             </div>
 
             {/* Title */}
-            <h1 className="mb-6 font-mono text-3xl font-bold sm:text-4xl lg:text-5xl">
-              <span className="text-muted-foreground">{'>'}</span>
-              <span className="ml-2 break-words">{post.title}</span>
+            <h1 className="mb-6 font-mono text-2xl font-bold text-center sm:text-3xl lg:text-4xl">
+              <span className="break-words">{post.title}</span>
             </h1>
 
             {/* Excerpt */}
