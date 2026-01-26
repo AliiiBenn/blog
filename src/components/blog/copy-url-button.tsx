@@ -21,11 +21,11 @@ export function CopyUrlButton({ className }: { className?: string }) {
   return (
     <button
       onClick={handleCopy}
-      className={`inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors ${className || ''}`}
+      className={`inline-flex items-center gap-2 text-sm text-primary hover:underline transition-colors ${className || ''}`}
       title={copied ? 'Copied!' : 'Copy URL'}
     >
       {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-      <span>{copied ? 'Copied!' : 'Copy'}</span>
+      <span>{copied ? 'Copied!' : 'Copy URL'}</span>
     </button>
   )
 }
