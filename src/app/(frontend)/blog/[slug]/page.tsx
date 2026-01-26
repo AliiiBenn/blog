@@ -91,6 +91,10 @@ export default async function PostPage({ params }: PostPageProps) {
             </div>
           </div>
 
+          {/* Vertical dashed lines at 33% and 66% */}
+          <div className="absolute top-0 bottom-0 left-1/3 w-px border-l border-dashed border-border opacity-30 pointer-events-none"></div>
+          <div className="absolute top-0 bottom-0 left-2/3 w-px border-l border-dashed border-border opacity-30 pointer-events-none"></div>
+
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
           {/* Post Header */}
           <header className="mb-8">
