@@ -72,7 +72,7 @@ export function CodeBlockCode({
   return (
     <>
       {(filename || language) && (
-        <div className="flex items-center justify-between px-3 py-2 bg-muted/30 border-b border-border text-xs text-muted-foreground font-mono">
+        <div className="flex items-center justify-between px-3 py-1.5 bg-muted/30 border-b border-border text-xs text-muted-foreground font-mono">
           <div className="flex items-center gap-2 text-xs uppercase">
             <Terminal className="h-3.5 w-3.5" />
             <span>{filename || language}</span>
