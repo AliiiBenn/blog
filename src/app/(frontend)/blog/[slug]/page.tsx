@@ -58,10 +58,10 @@ export default async function PostPage({ params }: PostPageProps) {
   const imageAlt = (coverImageData || featuredImageData)?.alt || post.title
 
   return (
-    <div className="bg-background py-12">
+    <div className="bg-background py-24">
       {/* Header - Terminal Style */}
       <section className="bg-background">
-        <div className="mx-auto max-w-5xl border-x border-border">
+        <div className="mx-auto max-w-5xl border-x border-t border-border">
           {/* Section Header */}
           <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
             <FileText className="h-4 w-4 text-muted-foreground" />
