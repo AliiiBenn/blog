@@ -104,7 +104,7 @@ export default async function PostPage({ params }: PostPageProps) {
             </div>
 
             {/* Title */}
-            <h1 className="mb-6 font-mono text-2xl font-bold text-center sm:text-3xl lg:text-4xl">
+            <h1 className="mb-6 text-2xl font-bold text-center sm:text-3xl lg:text-4xl">
               <span className="break-words">{post.title}</span>
             </h1>
 
