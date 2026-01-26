@@ -6,7 +6,8 @@ import { getPostBySlug, getRelatedPosts } from '@/app/actions/posts'
 import { PostGrid } from '@/components/posts/post-grid'
 import { Badge } from '@/components/ui/badge'
 import { RichText } from '@/components/richtext'
-import { Calendar, Clock, ChevronRight, FileText, Copy } from 'lucide-react'
+import { CopyUrlButton } from '@/components/blog/copy-url-button'
+import { Calendar, Clock, ChevronRight, FileText } from 'lucide-react'
 import { format } from 'date-fns'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
@@ -94,14 +95,7 @@ export default async function PostPage({ params }: PostPageProps) {
             {/* Title with actions */}
             <div className="relative mb-6">
               {/* Copy URL button */}
-              <button
-                onClick={() => navigator.clipboard.writeText(window.location.href)}
-                className="absolute -top-8 right-0 inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors font-mono"
-                title="Copy URL"
-              >
-                <Copy className="h-4 w-4" />
-                <span>Copy</span>
-              </button>
+              <CopyUrlButton className="absolute -top-8 right-0" />
 
               <h1 className="pr-20 text-3xl font-bold sm:text-4xl lg:text-5xl">
                 <span className="break-words">{post.title}</span>
