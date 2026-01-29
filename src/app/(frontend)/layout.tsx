@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { MobileMenu } from '@/components/mobile-menu'
+import { AnalyticsTracker } from '@/components/analytics/analytics-tracker'
 import './styles.css'
 
 export const metadata = {
@@ -17,6 +18,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className="bg-background text-foreground">
+        <AnalyticsTracker />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
