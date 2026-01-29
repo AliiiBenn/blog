@@ -2,8 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Post } from '@/payload-types'
 import { format } from 'date-fns'
-import { Calendar, Clock, ChevronRight, FileText } from 'lucide-react'
+import { Calendar, Clock, ChevronRight, FileText, Eye } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
+import { formatViewCount } from '@/lib/utils'
 
 interface PostCardProps {
   post: Post
@@ -20,6 +21,7 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
     category,
     tags,
     featuredImage,
+    viewCount,
   } = post
 
   const categoryData = typeof category === 'object' && category !== null ? category : null
@@ -70,6 +72,12 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
               <Clock className="h-3 w-3" />
               {readingTime}m
             </span>
+            {viewCount && viewCount > 0 && (
+              <span className="flex items-center gap-1">
+                <Eye className="h-3 w-3" />
+                {formatViewCount(viewCount)}
+              </span>
+            )}
           </div>
         </div>
 

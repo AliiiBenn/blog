@@ -7,9 +7,10 @@ import { PostGrid } from '@/components/posts/post-grid'
 import { Badge } from '@/components/ui/badge'
 import { RichText } from '@/components/richtext'
 import { CopyUrlButton } from '@/components/blog/copy-url-button'
-import { ChevronRight, FileText } from 'lucide-react'
+import { ChevronRight, FileText, Eye } from 'lucide-react'
 import { format } from 'date-fns'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
+import { formatViewCount } from '@/lib/utils'
 
 interface PostPageProps {
   params: Promise<{ slug: string }>
@@ -114,6 +115,12 @@ export default async function PostPage({ params }: PostPageProps) {
               <div className="flex items-center justify-between text-sm text-muted-foreground mt-10">
                 <div className="flex items-center gap-3">
                   {post.readingTime && <span>{post.readingTime} min read</span>}
+                  {post.viewCount && post.viewCount > 0 && (
+                    <span className="flex items-center gap-1">
+                      <Eye className="h-4 w-4" />
+                      {formatViewCount(post.viewCount)} views
+                    </span>
+                  )}
                   <CopyUrlButton />
                 </div>
                 {post.publishedDate && (
