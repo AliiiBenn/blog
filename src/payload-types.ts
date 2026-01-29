@@ -72,6 +72,7 @@ export interface Config {
     posts: Post;
     categories: Category;
     tags: Tag;
+    analytics: Analytics;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +85,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
+    analytics: AnalyticsSelect<false> | AnalyticsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -243,6 +245,14 @@ export interface Post {
    * Reading time in minutes (auto-calculated)
    */
   readingTime?: number | null;
+  /**
+   * Total page views (updated by analytics system)
+   */
+  viewCount?: number | null;
+  /**
+   * Last page view timestamp
+   */
+  lastViewedAt?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -322,6 +332,51 @@ export interface Tag {
   createdAt: string;
 }
 /**
+ * Website analytics tracking
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics".
+ */
+export interface Analytics {
+  id: number;
+  /**
+   * URL path (e.g., /blog/my-post)
+   */
+  path: string;
+  /**
+   * Total page views
+   */
+  pageViews: number;
+  /**
+   * Last page view timestamp
+   */
+  lastViewed: string;
+  /**
+   * Traffic source (referrer)
+   */
+  referrer?: string | null;
+  /**
+   * Browser user agent
+   */
+  userAgent?: string | null;
+  device?: {
+    /**
+     * Device type (mobile/desktop/tablet)
+     */
+    type?: string | null;
+    /**
+     * Browser name
+     */
+    browser?: string | null;
+    /**
+     * Operating system
+     */
+    os?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -364,6 +419,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'tags';
         value: number | Tag;
+      } | null)
+    | ({
+        relationTo: 'analytics';
+        value: number | Analytics;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -468,6 +527,8 @@ export interface PostsSelect<T extends boolean = true> {
   author?: T;
   relatedPosts?: T;
   readingTime?: T;
+  viewCount?: T;
+  lastViewedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -502,6 +563,26 @@ export interface TagsSelect<T extends boolean = true> {
   metaTitle?: T;
   metaDescription?: T;
   postsCount?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics_select".
+ */
+export interface AnalyticsSelect<T extends boolean = true> {
+  path?: T;
+  pageViews?: T;
+  lastViewed?: T;
+  referrer?: T;
+  userAgent?: T;
+  device?:
+    | T
+    | {
+        type?: T;
+        browser?: T;
+        os?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

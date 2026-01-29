@@ -141,6 +141,25 @@ export const Posts: CollectionConfig = {
         readOnly: true,
       },
     },
+    {
+      name: 'viewCount',
+      type: 'number',
+      defaultValue: 0,
+      admin: {
+        description: 'Total page views (updated by analytics system)',
+        readOnly: true,
+        condition: (data) => data.status === 'published', // Only show for published posts
+      },
+    },
+    {
+      name: 'lastViewedAt',
+      type: 'date',
+      admin: {
+        description: 'Last page view timestamp',
+        readOnly: true,
+        hidden: true, // Only for system use
+      },
+    },
   ],
   hooks: {
     beforeChange: [
