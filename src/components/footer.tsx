@@ -3,8 +3,8 @@ import { ChevronRight } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-5xl border-x border-border px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="bg-background">
+      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* About section */}
           <div className="space-y-3">
@@ -91,12 +91,6 @@ export function Footer() {
               </li>
             </ul>
           </div>
-        </div>
-
-        <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p className="font-mono">
-            &copy; {new Date().getFullYear()} Blog. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>

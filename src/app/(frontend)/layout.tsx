@@ -6,6 +6,8 @@ import { Footer } from '@/components/footer'
 import { MobileMenu } from '@/components/mobile-menu'
 import './styles.css'
 
+import { GeistSans } from "geist/font/sans";
+
 export const metadata = {
   description: 'A modern blog built with Payload CMS and Next.js',
   title: 'Blog',
@@ -15,7 +17,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className={GeistSans.className + "dark"} suppressHydrationWarning>
       <body className="bg-background text-foreground">
         <ThemeProvider
           attribute="class"

@@ -2,8 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Post } from '@/payload-types'
 import { format } from 'date-fns'
-import { Calendar, Clock, ChevronRight, FileText } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
 
 interface PostCardProps {
   post: Post
@@ -29,18 +29,10 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
   const imageAlt = imageData?.alt || title
 
   return (
-    <div className="group flex flex-col overflow-hidden border-r border-b border-border bg-background transition-all hover:border-muted-foreground/40">
-      {/* Terminal-style header */}
-      <div className="border-b border-border bg-muted/20 px-3 py-2 font-mono text-xs text-muted-foreground">
-        <div className="flex items-center gap-2">
-          <FileText className="h-3 w-3 shrink-0" />
-          <span className="truncate">post_{slug.slice(0, 15)}...</span>
-        </div>
-      </div>
-
+    <Link href={`/blog/${slug}`} className="group flex flex-col overflow-hidden border border-border bg-background transition-all">
       {/* Image */}
       {imageUrl && (
-        <Link href={`/blog/${slug}`} className="relative aspect-video overflow-hidden bg-muted">
+        <div className="relative aspect-video overflow-hidden bg-muted">
           <Image
             src={imageUrl}
             alt={imageAlt}
@@ -49,83 +41,72 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
             priority={priority}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
-        </Link>
+        </div>
       )}
 
       {/* Content */}
-      <div className="flex flex-1 flex-col border-b border-border p-3 sm:p-4">
+      <div className="flex flex-1 flex-col border-b border-border p-8">
         {/* Metadata row */}
-        <div className="mb-3 flex items-center flex-wrap gap-2 font-mono text-xs">
+        <div className="mb-3 flex items-center justify-between text-xs">
           {categoryData && (
-            <Link
-              href={`/category/${categoryData.slug}`}
-              className="inline-flex items-center rounded-sm bg-muted/50 px-2 py-1 text-xs transition-colors hover:bg-muted"
-            >
-              <ChevronRight className="h-3 w-3" />
-              <span className="ml-1 truncate max-w-[150px]">{categoryData.name}</span>
-            </Link>
-          )}
-          <div className="flex items-center gap-3 text-muted-foreground">
-            <span className="flex items-center gap-1">
-              <Clock className="h-3 w-3" />
-              {readingTime}m
+            <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+              {categoryData.name}
             </span>
-          </div>
+          )}
+          {publishedDate && (
+            <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+              {format(new Date(publishedDate), 'MMM d, yyyy')}
+            </span>
+          )}
         </div>
 
         {/* Title */}
-        <Link href={`/blog/${slug}`} className="mb-2">
-          <h3 className="font-mono text-base sm:text-lg font-semibold line-clamp-2 group-hover:text-foreground transition-colors text-foreground">
-            {'>'} <span className="break-words">{title}</span>
+        <div className="mb-4">
+          <h3 className="text-lg sm:text-xl font-semibold line-clamp-2 group-hover:text-foreground transition-colors text-foreground">
+            <span className="break-words">{title}</span>
           </h3>
-        </Link>
+        </div>
+
+        {/* Description */}
+        <p className="mb-3 text-sm text-muted-foreground group-hover:text-foreground transition-colors line-clamp-3">
+          Discover the latest insights and best practices in modern web development. Learn how to build scalable applications with cutting-edge technologies and master essential techniques used by professional developers worldwide.
+        </p>
 
         {/* Excerpt */}
         {excerpt && (
-          <p className="mb-4 flex-1 font-mono text-xs sm:text-sm text-muted-foreground line-clamp-3">
+          <p className="mb-4 flex-1 text-xs sm:text-sm text-muted-foreground group-hover:text-foreground transition-colors line-clamp-3">
             {excerpt}
           </p>
         )}
 
-        {/* Footer */}
-        <div className="mt-auto flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground truncate">
-            {publishedDate && (
-              <span className="flex items-center gap-1">
-                <Calendar className="h-3 w-3 shrink-0" />
-                <span className="truncate">{format(new Date(publishedDate), 'MMM d, yyyy')}</span>
-              </span>
-            )}
+        {/* Footer - Tags */}
+        {tagsData.length > 0 && (
+          <div className="mt-auto flex gap-1 flex-wrap">
+            {tagsData.map((tag) => {
+              const tagData = typeof tag === 'object' && tag !== null ? tag : null
+              if (!tagData) return null
+
+              return (
+                <Badge
+                  key={tagData.id}
+                  variant="outline"
+                  className="font-mono text-[10px] border-border"
+                >
+                  {tagData.name}
+                </Badge>
+              )
+            })}
           </div>
+        )}
 
-          {tagsData.length > 0 && (
-            <div className="flex gap-1 flex-wrap">
-              {tagsData.map((tag) => {
-                const tagData = typeof tag === 'object' && tag !== null ? tag : null
-                if (!tagData) return null
-
-                return (
-                  <Badge
-                    key={tagData.id}
-                    variant="outline"
-                    className="font-mono text-[10px] border-border"
-                  >
-                    {tagData.name}
-                  </Badge>
-                )
-              })}
-            </div>
-          )}
+        {/* Author Footer */}
+        <div className="mt-4 flex items-center gap-2">
+          <Avatar size="sm">
+            <AvatarImage src="/me.png" alt="David Pereira" />
+          </Avatar>
+          <span className="text-[13px] text-muted-foreground group-hover:text-foreground transition-colors">David Pereira</span>
         </div>
       </div>
-
-      {/* Terminal-style footer */}
-      <div className="bg-muted/20 px-3 py-2 font-mono text-xs text-muted-foreground">
-        <div className="flex items-center justify-between">
-          <span className="truncate">./read_more.sh</span>
-          <ChevronRight className="h-3 w-3 shrink-0" />
-        </div>
-      </div>
-    </div>
+    </Link>
   )
 }
