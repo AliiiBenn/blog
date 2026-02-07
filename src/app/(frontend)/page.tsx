@@ -20,6 +20,14 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl max-h-[80rem] border-x border-t border-border px-4 sm:px-6 lg:px-8 pt-24 pb-12 relative overflow-hidden">
+          {/* Top left corner decoration */}
+          <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+            <div className="relative w-6 h-6 opacity-50">
+              <div className="absolute top-1/2 left-0 right-0 h-px bg-foreground -translate-y-1/2"></div>
+              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-foreground -translate-x-1/2"></div>
+            </div>
+          </div>
+
           {/* Squares grid border */}
           <SquareBorderGrid className="z-10" targetSquares={10} />
 
@@ -54,7 +62,15 @@ export default async function HomePage() {
       </section>
 
       {/* Newsletter CTA - Terminal Style */}
-      <section className="mx-auto max-w-5xl border-x border-t border-b border-border bg-background px-4 py-12 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-5xl border-x border-t border-b border-border bg-background px-4 py-12 sm:px-6 lg:px-8 relative">
+        {/* Bottom right corner decoration */}
+        <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 pointer-events-none">
+          <div className="relative w-6 h-6 opacity-50">
+            <div className="absolute top-1/2 left-0 right-0 h-px bg-foreground -translate-y-1/2"></div>
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-foreground -translate-x-1/2"></div>
+          </div>
+        </div>
+
         <div className="border-2 border-dashed border-border bg-muted/20 p-6 sm:p-8">
           <div className="mx-auto max-w-2xl text-center">
             {/* Terminal prompt */}
