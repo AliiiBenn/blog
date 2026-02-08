@@ -57,7 +57,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-5xl h-4 border-x border-t border-border" />
 
       {/* Latest Posts - Terminal Style */}
-      <section className="mx-auto max-w-5xl border-x border-border bg-background">
+      <section className="mx-auto max-w-5xl border-x border-t border-border bg-background">
         <PostGrid posts={recentPosts} />
       </section>
 
