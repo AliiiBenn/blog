@@ -54,15 +54,15 @@ export default async function HomePage() {
       </section>
 
       {/* Spacer */}
-      <section className="mx-auto max-w-5xl h-4 border-x border-t border-border mx-2 sm:mx-0" />
+      <section className="mx-auto max-w-5xl h-4 border-t border-border sm:border-x" />
 
       {/* Latest Posts - Terminal Style */}
-      <section className="mx-auto max-w-5xl border-x border-t border-border bg-background mx-2 sm:mx-0">
+      <section className="mx-auto max-w-5xl border-t border-border bg-background sm:border-x">
         <PostGrid posts={recentPosts} />
       </section>
 
       {/* Newsletter CTA - Terminal Style */}
-      <section className="mx-auto max-w-5xl border-x border-t border-b border-border bg-background px-4 py-12 sm:px-6 lg:px-8 relative mx-2 sm:mx-0">
+      <section className="mx-auto max-w-5xl border-t border-b border-border bg-background px-4 py-12 sm:px-6 lg:px-8 relative sm:border-x">
         {/* Bottom right corner decoration */}
         <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 pointer-events-none">
           <div className="relative w-6 h-6 opacity-50">
