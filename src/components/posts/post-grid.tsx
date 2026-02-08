@@ -7,19 +7,6 @@ interface PostGridProps {
 }
 
 export const PostGrid = ({ posts: _posts }: PostGridProps) => {
-  // Calculate position flags for each card (based on desktop layout: 3 columns)
-  const cols = 3
-  const total = _posts.length
-
-  const getPositionFlags = (index: number) => {
-    const isFirstRow = index < cols
-    const isLastRow = index >= total - (total % cols || cols)
-    const isFirstCol = index % cols === 0
-    const isLastCol = (index + 1) % cols === 0 || index === total - 1
-
-    return { isFirstRow, isLastRow, isFirstCol, isLastCol }
-  }
-
   if (_posts.length === 0) {
     return (
       <div className="col-span-full">
@@ -43,18 +30,14 @@ export const PostGrid = ({ posts: _posts }: PostGridProps) => {
   }
 
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0">
-      {_posts.map((post, index) => {
-        const positionFlags = getPositionFlags(index)
-        return (
-          <PostCard
-            key={post.id}
-            post={post}
-            priority={index < 6}
-            {...positionFlags}
-          />
-        )
-      })}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0 divide-y sm:divide-y-0 divide-border">
+      {_posts.map((post, index) => (
+        <PostCard
+          key={post.id}
+          post={post}
+          priority={index < 6}
+        />
+      ))}
     </div>
   )
 }

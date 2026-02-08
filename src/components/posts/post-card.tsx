@@ -8,13 +8,9 @@ import { Avatar, AvatarImage } from '@/components/ui/avatar'
 interface PostCardProps {
   post: Post
   priority?: boolean
-  isFirstRow?: boolean
-  isLastRow?: boolean
-  isFirstCol?: boolean
-  isLastCol?: boolean
 }
 
-export const PostCard = ({ post, priority = false, isFirstRow = false, isLastRow = false, isFirstCol = false, isLastCol = false }: PostCardProps) => {
+export const PostCard = ({ post, priority = false }: PostCardProps) => {
   const {
     title,
     slug,
@@ -33,9 +29,7 @@ export const PostCard = ({ post, priority = false, isFirstRow = false, isLastRow
   const imageAlt = imageData?.alt || title
 
   return (
-    <Link href={`/blog/${slug}`} className={`group flex flex-col overflow-hidden bg-background transition-all ${
-      isFirstRow ? 'border-x border-b border-border' : 'border border-border'
-    } ${isFirstCol ? 'border-l' : ''} ${isLastCol ? 'border-r' : ''}`}>
+    <Link href={`/blog/${slug}`} className="group flex flex-col overflow-hidden border border-border bg-background transition-all">
       {/* Image */}
       {imageUrl && (
         <div className="relative aspect-video overflow-hidden bg-muted">
