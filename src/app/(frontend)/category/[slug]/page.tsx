@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getCategoryBySlug } from '@/app/actions/categories'
 import { getPosts } from '@/app/actions/posts'
+import { getCategories } from '@/app/actions/categories'
 import { PostGrid } from '@/components/posts/post-grid'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, FileText } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>
@@ -35,27 +37,41 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const posts = await getPosts({ category: slug, limit: 12 })
+  const categories = await getCategories()
 
   return (
-    <div className="bg-background">
-      {/* Category Header - Terminal Style */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-5xl border-x border-border">
-          {/* Section Header */}
-          <div>
-            <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
-              <FileText className="h-4 w-4 text-muted-foreground" />
-              <div className="flex-1 font-mono text-xs text-muted-foreground">
-                ~/category/{slug}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    <div className="bg-background py-16 sm:py-20 lg:py-24 px-3">
       {/* Main Content */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl border-x border-t border-b border-border">
+          {/* Categories Filter */}
+          {categories.length > 0 && (
+            <div className="border-b border-border bg-muted/20">
+              <div className="flex gap-0 overflow-x-auto">
+                <Link href="/blog">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="font-mono text-xs whitespace-nowrap rounded-none h-auto px-4 py-2"
+                  >
+                    All
+                  </Button>
+                </Link>
+                {categories.map((cat) => (
+                  <Link key={cat.id} href={`/category/${cat.slug}`}>
+                    <Button
+                      variant={slug === cat.slug ? "default" : "outline"}
+                      size="sm"
+                      className="font-mono text-xs whitespace-nowrap rounded-none h-auto px-4 py-2"
+                    >
+                      {cat.name}
+                    </Button>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           <PostGrid posts={posts} />
 
           {posts.length === 12 && (
