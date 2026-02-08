@@ -55,8 +55,8 @@ export default async function HomePage() {
       </section>
 
       {/* Newsletter CTA - Terminal Style */}
-      <section className="mx-auto max-w-5xl border-x border-t border-b border-border bg-background py-12 relative">
-        <div className="border-2 border-dashed border-border bg-muted/20 p-8">
+      <section className="mx-auto max-w-5xl border-x border-t border-b border-border bg-background sm:py-12 relative">
+        <div className="sm:border-2 sm:border-dashed border-border bg-muted/20 p-8">
           <div className="mx-auto max-w-2xl text-center">
             {/* Terminal prompt */}
             <div className="mb-4 font-mono text-xs">
