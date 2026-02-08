@@ -19,7 +19,7 @@ export default async function HomePage() {
     <div className="bg-background py-8 sm:py-12 lg:py-16 relative">
       {/* Hero Section */}
       <section className="bg-background">
-        <div className="mx-auto max-w-5xl max-h-[80rem] border-x border-t border-border px-4 sm:px-6 lg:px-8 pt-24 pb-12 relative overflow-hidden">
+        <div className="mx-auto max-w-5xl max-h-[80rem] border-x border-t border-border sm:px-6 lg:px-8 pt-24 pb-12 relative overflow-hidden">
           {/* Top left corner decoration */}
           <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
             <div className="relative w-6 h-6 opacity-50">
@@ -62,7 +62,7 @@ export default async function HomePage() {
       </section>
 
       {/* Newsletter CTA - Terminal Style */}
-      <section className="mx-auto max-w-5xl border-x border-t border-b border-border bg-background px-4 py-12 sm:px-6 lg:px-8 relative">
+      <section className="mx-auto max-w-5xl border-x border-t border-b border-border bg-background py-12 sm:px-6 lg:px-8 relative">
         {/* Bottom right corner decoration */}
         <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 pointer-events-none">
           <div className="relative w-6 h-6 opacity-50">
