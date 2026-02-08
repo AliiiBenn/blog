@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getPosts } from '@/app/actions/posts'
 import { PostGrid } from '@/components/posts/post-grid'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, FileText } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -27,22 +27,7 @@ export default async function BlogPage(
   })
 
   return (
-    <div className="bg-background">
-      {/* Blog Header - Terminal Style */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-5xl border-x border-border">
-          {/* Section Header */}
-          <div>
-            <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-3 py-2">
-              <FileText className="h-4 w-4 text-muted-foreground" />
-              <div className="flex-1 font-mono text-xs text-muted-foreground">
-                ~/blog/
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    <div className="bg-background py-16 sm:py-20 lg:py-24 px-3">
       {/* Main Content */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl border-x border-t border-b border-border">

@@ -29,7 +29,7 @@ export const PostCard = ({ post, priority = false }: PostCardProps) => {
   const imageAlt = imageData?.alt || title
 
   return (
-    <Link href={`/blog/${slug}`} className="group flex flex-col overflow-hidden border border-border bg-background transition-all">
+    <Link href={`/blog/${slug}`} className="group flex flex-col overflow-hidden sm:border-x border-b border-border bg-background transition-all">
       {/* Image */}
       {imageUrl && (
         <div className="relative aspect-video overflow-hidden bg-muted">

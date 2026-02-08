@@ -30,7 +30,7 @@ export const PostGrid = ({ posts: _posts }: PostGridProps) => {
   }
 
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0 [&>*:nth-child(-n+1)]:border-t-0 sm:[&>*:nth-child(-n+2)]:border-t-0 lg:[&>*:nth-child(-n+3)]:border-t-0">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0 [&>*:not(:nth-child(-n+1))]:border-t sm:[&>*:not(:nth-child(-n+2))]:border-t lg:[&>*:not(:nth-child(-n+3))]:border-t">
       {_posts.map((post, index) => (
         <PostCard
           key={post.id}
