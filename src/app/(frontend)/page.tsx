@@ -17,7 +17,7 @@ export default async function HomePage() {
   const recentPosts = await getRecentPosts(6)
 
   return (
-    <div className="bg-background py-8 sm:py-12 lg:py-16 px-2 relative">
+    <div className="bg-background py-16 sm:py-20 lg:py-24 px-3 relative">
       {/* Hero Section */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl max-h-[80rem] border-x border-t border-border pt-24 pb-12 relative overflow-hidden">

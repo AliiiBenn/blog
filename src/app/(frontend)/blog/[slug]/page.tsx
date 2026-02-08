@@ -59,30 +59,15 @@ export default async function PostPage({ params }: PostPageProps) {
   const imageAlt = (coverImageData || featuredImageData)?.alt || post.title
 
   return (
-    <div className="bg-background py-24">
+    <div className="bg-background py-16 sm:py-20 lg:py-24 px-3">
       {/* Header - Terminal Style */}
       <section className="bg-background">
-        <div className="mx-auto max-w-5xl border-x border-t border-border relative">
-          {/* Top left corner decoration */}
-          <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-            <div className="relative w-6 h-6 opacity-50">
-              <div className="absolute top-1/2 left-0 right-0 h-px bg-white -translate-y-1/2"></div>
-              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white -translate-x-1/2"></div>
-            </div>
-          </div>
-        </div>
+        <div className="mx-auto max-w-5xl border-x border-t border-border relative" />
       </section>
 
       {/* Main Content */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl border-x border-t border-b border-border relative">
-          {/* Bottom right corner decoration */}
-          <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 pointer-events-none">
-            <div className="relative w-6 h-6 opacity-50">
-              <div className="absolute top-1/2 left-0 right-0 h-px bg-white -translate-y-1/2"></div>
-              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white -translate-x-1/2"></div>
-            </div>
-          </div>
 
           {/* Vertical dashed lines at 33% and 66% */}
           <div className="absolute top-0 bottom-0 left-1/3 w-px border-l border-dashed border-border pointer-events-none"></div>
