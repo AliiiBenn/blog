@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { getPosts } from '@/app/actions/posts'
+import { getCategories } from '@/app/actions/categories'
 import { PostGrid } from '@/components/posts/post-grid'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -26,11 +28,41 @@ export default async function BlogPage(
     page,
   })
 
+  const categories = await getCategories()
+
   return (
     <div className="bg-background py-16 sm:py-20 lg:py-24 px-3">
       {/* Main Content */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl border-x border-t border-b border-border">
+          {/* Categories Filter */}
+          {categories.length > 0 && (
+            <div className="border-b border-border bg-muted/20">
+              <div className="flex gap-0 overflow-x-auto">
+                <Link href="/blog">
+                  <Button
+                    variant={!category ? "default" : "outline"}
+                    size="sm"
+                    className="font-mono text-xs whitespace-nowrap rounded-none h-auto px-4 py-2"
+                  >
+                    All
+                  </Button>
+                </Link>
+                {categories.map((cat) => (
+                  <Link key={cat.id} href={`/category/${cat.slug}`}>
+                    <Button
+                      variant={category === cat.slug ? "default" : "outline"}
+                      size="sm"
+                      className="font-mono text-xs whitespace-nowrap rounded-none h-auto px-4 py-2"
+                    >
+                      {cat.name}
+                    </Button>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           <PostGrid posts={posts} />
 
           {posts.length === 12 && (
