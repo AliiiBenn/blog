@@ -16,7 +16,7 @@ export default async function HomePage() {
   const recentPosts = await getRecentPosts(6)
 
   return (
-    <div className="bg-background py-8 sm:py-12 lg:py-16 relative">
+    <div className="bg-background py-8 sm:py-12 lg:py-16 px-2 sm:px-0 relative">
       {/* Hero Section */}
       <section className="bg-background">
         <div className="mx-auto max-w-5xl max-h-[80rem] border-x border-t border-border px-4 sm:px-6 lg:px-8 pt-24 pb-12 relative overflow-hidden">
@@ -54,15 +54,15 @@ export default async function HomePage() {
       </section>
 
       {/* Spacer */}
-      <section className="mx-auto max-w-5xl h-4 border-t border-border sm:border-x" />
+      <section className="mx-auto max-w-5xl h-4 border-x border-t border-border" />
 
       {/* Latest Posts - Terminal Style */}
-      <section className="mx-auto max-w-5xl border-t border-border bg-background sm:border-x">
+      <section className="mx-auto max-w-5xl border-x border-t border-border bg-background">
         <PostGrid posts={recentPosts} />
       </section>
 
       {/* Newsletter CTA - Terminal Style */}
-      <section className="mx-auto max-w-5xl border-t border-b border-border bg-background px-4 py-12 sm:px-6 lg:px-8 relative sm:border-x">
+      <section className="mx-auto max-w-5xl border-x border-t border-b border-border bg-background px-4 py-12 sm:px-6 lg:px-8 relative">
         {/* Bottom right corner decoration */}
         <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 pointer-events-none">
           <div className="relative w-6 h-6 opacity-50">
