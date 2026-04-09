@@ -44,7 +44,7 @@ export default function AboutPage() {
         , companies dedicated to creating the future of software development and computer science education. I&apos;ve been coding for over a decade and building tools for developers.
       </p>
       <p className="text-copy my-5">
-        My life&apos;s work is to build the world of software engineering, ready for AI and the next generation of exceptional developers.
+        My life&apos;s work is to write the next chapter of software engineering, ready for AI and the next generation of exceptional developers.
       </p>
       <h2 className="text-lg md:text-xl mb-1 font-medium leading-13 mt-8">
         Organizations
