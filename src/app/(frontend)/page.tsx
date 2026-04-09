@@ -101,38 +101,31 @@ export default async function HomePage() {
         You can{' '}
         <a
           className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
-          href="/writing"
-        >
-          read my writing
-        </a>{' '}
-        or{' '}
-        <a
-          href="https://github.com/davidpereira"
+          href="https://github.com/AliiiBenn"
           target="_blank"
           rel="noopener noreferrer"
-          className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
         >
           code
         </a>
         , or{' '}
         <a
-          href="https://x.com/davidpereira"
+          href="https://x.com/codewizdave"
           target="_blank"
           rel="noopener noreferrer"
           className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
         >
-          follow me online
+          follow me on X
         </a>
-        . I also make{' '}
+        , or{' '}
         <a
-          href="https://www.youtube.com/@davidpereira"
+          href="https://linkedin.com/in/codewithdave"
           target="_blank"
           rel="noopener noreferrer"
           className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
         >
-          videos
+          connect on LinkedIn
         </a>
-        , and sometimes advise companies.{' '}
+        .{' '}
         <a
           href="mailto:david@nesalia.com"
           target="_blank"
