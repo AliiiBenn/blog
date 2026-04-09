@@ -1,88 +1,155 @@
 import type { Metadata } from 'next'
-import { getRecentPosts } from '@/app/actions/posts'
-import { PostGrid } from '@/components/posts/post-grid'
-import RotatingEarth from '@/components/rotating-earth'
-import { SquareBorderGrid } from '@/components/square-border-grid'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Kbd } from '@/components/ui/kbd'
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'David Pereira',
   description:
-    'Blog of David Pereira - Python, Next.js, React, TypeScript developer and creator of Developers Secrets and Nesalia Inc',
+    'Developer and creator of Nesalia Inc and Deessejs - A company building the future of software development and computer science education, along with a CMS/Framework for computing excellence.',
 }
 
 export default async function HomePage() {
-  const recentPosts = await getRecentPosts(6)
-
   return (
-    <div className="bg-background py-16 sm:py-20 lg:py-24 px-3 relative">
-      {/* Hero Section */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-5xl max-h-[80rem] border-x border-t border-border pt-24 pb-12 relative overflow-hidden">
-          {/* Squares grid border */}
-          <SquareBorderGrid className="z-10" targetSquares={10} />
-
-          <div className="text-center mb-8">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-3">
-              In the endless pursuit of achieving greatness
-            </h1>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-              Exploring the intersection of technology, innovation, and continuous growth
-            </p>
-
-            {/* Separator */}
-            <div className="flex items-center justify-center gap-4">
-              <div className="h-px w-16 bg-border/30" />
-              <div className="w-1 h-1 bg-border/30 rounded-full" />
-              <div className="h-px w-16 bg-border/30" />
-            </div>
-          </div>
-
-          <div className="flex justify-center">
-            <RotatingEarth width={700} height={525} />
-          </div>
-        </div>
-      </section>
-
-      {/* Spacer */}
-      <section className="mx-auto max-w-5xl h-4 border-x border-t border-border" />
-
-      {/* Latest Posts - Terminal Style */}
-      <section className="mx-auto max-w-5xl border-x border-t border-border bg-background">
-        <PostGrid posts={recentPosts} />
-      </section>
-
-      {/* Newsletter CTA - Terminal Style */}
-      <section className="mx-auto max-w-5xl border-x border-t border-b border-border bg-background sm:py-12 relative">
-        <div className="sm:border-2 sm:border-dashed border-border bg-muted/20 p-8">
-          <div className="mx-auto max-w-2xl text-center">
-            {/* Terminal prompt */}
-            <div className="mb-4 font-mono text-xs">
-              <div className="inline-flex items-center gap-2 border border-border bg-muted px-2 py-2 max-w-full overflow-hidden">
-                <Kbd className="bg-background">$</Kbd>
-                <span className="text-muted-foreground truncate">curl --subscribe newsletter</span>
-                <span className="animate-pulse shrink-0">_</span>
-              </div>
-            </div>
-            <h2 className="mb-4 font-mono text-lg sm:text-xl font-bold">
-              <span className="text-muted-foreground">TODO:</span>
-              <span className="ml-2 text-foreground break-words">Stay Updated</span>
-            </h2>
-            <p className="mb-6 font-mono text-sm text-muted-foreground">
-              {/* Get the latest articles delivered straight to your inbox */}
-            </p>
-            <Button size="default" disabled className="font-mono w-full sm:w-auto">
-              <span className="text-muted-foreground">[ ]</span>
-              <span className="ml-2 truncate">Subscribe to Newsletter</span>
-              <Badge variant="secondary" className="ml-2 text-xs shrink-0">
-                WIP
-              </Badge>
-            </Button>
-          </div>
-        </div>
-      </section>
-    </div>
+    <main className="w-full mt-0 md:mt-16">
+      <h1
+        id="david-pereira"
+        className="text-xl md:text-2xl mb-1 font-medium leading-13"
+      >
+        David Pereira
+      </h1>
+      <p className="text-copy my-5">
+        I&apos;m a{' '}
+        <a
+          className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+          href="/about"
+        >
+          developer and creator
+        </a>
+        . I founded{' '}
+        <a
+          className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+          href="https://nesalia.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Nesalia Inc
+        </a>{' '}
+        and{' '}
+        <a
+          className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+          href="https://deessejs.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Deessejs
+        </a>
+        , companies dedicated to creating the future of software development and computer science education. I&apos;ve been coding for over a decade and building tools for developers.
+      </p>
+      <p className="text-copy my-5">
+        My life&apos;s work is to build the world of tomorrow&apos;s computing, ready for AI and the next generation of exceptional developers. I&apos;m also a husband and father, and a massive{' '}
+        <a
+          className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+          href="/music"
+        >
+          music fan
+        </a>
+        .
+      </p>
+      <p className="text-copy my-5">Some of my favorite writing includes:</p>
+      <ul className="text-copy pl-0 space-y-1">
+        <li className="pl-1">
+          <a
+            className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+            href="/beliefs"
+          >
+            Things I Believe
+          </a>
+        </li>
+        <li className="pl-1">
+          <a
+            className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+            href="/ai"
+          >
+            Understanding AI
+          </a>
+        </li>
+        <li className="pl-1">
+          <a
+            className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+            href="/developers"
+          >
+            Developer Tools of Tomorrow
+          </a>
+        </li>
+        <li className="pl-1">
+          <a
+            className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+            href="/education"
+          >
+            The Future of CS Education
+          </a>
+        </li>
+        <li className="pl-1">
+          <a
+            className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+            href="/compression"
+          >
+            How Does Image Compression Work?
+          </a>
+        </li>
+        <li className="pl-1">
+          <a
+            className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+            href="/cms"
+          >
+            Building Excellence in Web Development
+          </a>
+        </li>
+      </ul>
+      <p className="text-copy my-5">
+        You can{' '}
+        <a
+          className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+          href="/writing"
+        >
+          read my writing
+        </a>{' '}
+        or{' '}
+        <a
+          href="https://github.com/davidpereira"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+        >
+          code
+        </a>
+        , or{' '}
+        <a
+          href="https://x.com/davidpereira"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+        >
+          follow me online
+        </a>
+        . I also make{' '}
+        <a
+          href="https://www.youtube.com/@davidpereira"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+        >
+          videos
+        </a>
+        , and sometimes advise companies.{' '}
+        <a
+          href="mailto:david@nesalia.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
+        >
+          Reach out
+        </a>{' '}
+        if interested.
+      </p>
+    </main>
   )
 }
