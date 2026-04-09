@@ -83,14 +83,6 @@ export default async function HomePage() {
         <li className="pl-1">
           <a
             className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
-            href="/compression"
-          >
-            How Does Image Compression Work?
-          </a>
-        </li>
-        <li className="pl-1">
-          <a
-            className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
             href="/cms"
           >
             Building Excellence in Web Development
