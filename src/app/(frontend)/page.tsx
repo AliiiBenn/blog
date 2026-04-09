@@ -44,14 +44,7 @@ export default async function HomePage() {
         , companies dedicated to creating the future of software development and computer science education. I&apos;ve been coding for over a decade and building tools for developers.
       </p>
       <p className="text-copy my-5">
-        My life&apos;s work is to build the world of tomorrow&apos;s computing, ready for AI and the next generation of exceptional developers. I&apos;m also a husband and father, and a massive{' '}
-        <a
-          className="transition-colors underline decoration-neutral-500 decoration-1 underline-offset-[2.5px] hover:decoration-neutral-400 dark:hover:decoration-neutral-600"
-          href="/music"
-        >
-          music fan
-        </a>
-        .
+        My life&apos;s work is to build the world of tomorrow&apos;s computing, ready for AI and the next generation of exceptional developers.
       </p>
       <p className="text-copy my-5">Some of my favorite writing includes:</p>
       <ul className="text-copy pl-0 space-y-1">
