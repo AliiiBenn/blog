@@ -1,8 +1,6 @@
 import React from 'react'
 import { QueryClientProvider } from '@/lib/providers'
 import { ThemeProvider } from '@/components/theme-provider'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
 import { MobileMenu } from '@/components/mobile-menu'
 import './styles.css'
 
@@ -26,11 +24,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           disableTransitionOnChange
         >
           <QueryClientProvider>
-            <div className="flex min-h-screen flex-col">
-              <Header />
-              <main className="flex-1 w-full">{children}</main>
-              <Footer />
-            </div>
+            <main className="flex-1 w-full max-w-5xl mx-auto">{children}</main>
             <MobileMenu />
           </QueryClientProvider>
         </ThemeProvider>
