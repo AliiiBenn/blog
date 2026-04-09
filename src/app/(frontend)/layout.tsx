@@ -24,7 +24,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           disableTransitionOnChange
         >
           <QueryClientProvider>
-            <main className="flex-1 w-full max-w-3xl mx-auto">{children}</main>
+            <main className="flex-1 w-full max-w-2xl mx-auto">{children}</main>
             <MobileMenu />
           </QueryClientProvider>
         </ThemeProvider>
